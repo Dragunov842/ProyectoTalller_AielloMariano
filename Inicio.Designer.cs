@@ -29,41 +29,69 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            lblusuario = new Label();
+            Usuario = new Label();
             label1 = new Label();
             menuStrip2 = new MenuStrip();
             menuStrip1 = new MenuStrip();
-            iconMenuItem5 = new FontAwesome.Sharp.IconMenuItem();
-            iconMenuItem4 = new FontAwesome.Sharp.IconMenuItem();
-            iconMenuItem3 = new FontAwesome.Sharp.IconMenuItem();
-            iconMenuItem2 = new FontAwesome.Sharp.IconMenuItem();
-            iconMenuItem1 = new FontAwesome.Sharp.IconMenuItem();
-            iconMenuItem6 = new FontAwesome.Sharp.IconMenuItem();
-            iconMenuItem7 = new FontAwesome.Sharp.IconMenuItem();
-            iconMenuItem8 = new FontAwesome.Sharp.IconMenuItem();
+            menuAlumnos = new FontAwesome.Sharp.IconMenuItem();
+            menuAsistencias = new FontAwesome.Sharp.IconMenuItem();
+            menuMembresias = new FontAwesome.Sharp.IconMenuItem();
+            menuPlanes = new FontAwesome.Sharp.IconMenuItem();
+            menuPagos = new FontAwesome.Sharp.IconMenuItem();
+            menuReportes = new FontAwesome.Sharp.IconMenuItem();
+            menuUsuarios = new FontAwesome.Sharp.IconMenuItem();
+            menuSalir = new FontAwesome.Sharp.IconMenuItem();
+            contenedor = new Panel();
             panel1.SuspendLayout();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
-            panel1.BackColor = SystemColors.Info;
+            panel1.BackColor = SystemColors.ActiveCaption;
+            panel1.Controls.Add(lblusuario);
+            panel1.Controls.Add(Usuario);
             panel1.Controls.Add(label1);
-            panel1.Location = new Point(0, -2);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 71);
             panel1.Name = "panel1";
-            panel1.Size = new Size(993, 66);
+            panel1.Size = new Size(1022, 66);
             panel1.TabIndex = 0;
             panel1.Paint += panel1_Paint;
+            // 
+            // lblusuario
+            // 
+            lblusuario.AutoSize = true;
+            lblusuario.ForeColor = Color.FromArgb(192, 0, 0);
+            lblusuario.Location = new Point(851, 35);
+            lblusuario.Name = "lblusuario";
+            lblusuario.Size = new Size(59, 15);
+            lblusuario.TabIndex = 2;
+            lblusuario.Text = "lblusuario";
+            // 
+            // Usuario
+            // 
+            Usuario.AutoSize = true;
+            Usuario.Font = new Font("Segoe UI", 10F);
+            Usuario.Location = new Point(795, 33);
+            Usuario.Name = "Usuario";
+            Usuario.Size = new Size(59, 19);
+            Usuario.TabIndex = 1;
+            Usuario.Text = "Usuario:";
+            Usuario.Click += label2_Click;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 25F);
-            label1.ForeColor = SystemColors.ControlText;
-            label1.Location = new Point(12, 11);
+            label1.ForeColor = Color.Gold;
+            label1.Location = new Point(415, 8);
             label1.Name = "label1";
             label1.Size = new Size(204, 46);
             label1.TabIndex = 0;
             label1.Text = "SportXpresS";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
             label1.Click += label1_Click;
             // 
             // menuStrip2
@@ -77,110 +105,125 @@
             // 
             // menuStrip1
             // 
-            menuStrip1.Dock = DockStyle.None;
-            menuStrip1.Items.AddRange(new ToolStripItem[] { iconMenuItem8, iconMenuItem5, iconMenuItem4, iconMenuItem3, iconMenuItem2, iconMenuItem1, iconMenuItem6, iconMenuItem7 });
-            menuStrip1.Location = new Point(0, 67);
+            menuStrip1.Items.AddRange(new ToolStripItem[] { menuAlumnos, menuAsistencias, menuMembresias, menuPlanes, menuPagos, menuReportes, menuUsuarios, menuSalir });
+            menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(572, 71);
+            menuStrip1.Size = new Size(1022, 71);
             menuStrip1.TabIndex = 3;
             menuStrip1.Text = "menuStrip1";
             // 
-            // iconMenuItem5
+            // menuAlumnos
             // 
-            iconMenuItem5.IconChar = FontAwesome.Sharp.IconChar.Check;
-            iconMenuItem5.IconColor = Color.Black;
-            iconMenuItem5.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconMenuItem5.ImageScaling = ToolStripItemImageScaling.None;
-            iconMenuItem5.Name = "iconMenuItem5";
-            iconMenuItem5.Size = new Size(77, 67);
-            iconMenuItem5.Text = "Asistencias";
-            iconMenuItem5.TextImageRelation = TextImageRelation.ImageAboveText;
-            iconMenuItem5.Click += iconMenuItem5_Click;
+            menuAlumnos.IconChar = FontAwesome.Sharp.IconChar.Dumbbell;
+            menuAlumnos.IconColor = Color.Black;
+            menuAlumnos.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            menuAlumnos.ImageScaling = ToolStripItemImageScaling.None;
+            menuAlumnos.Name = "menuAlumnos";
+            menuAlumnos.Size = new Size(67, 67);
+            menuAlumnos.Text = "Alumnos";
+            menuAlumnos.TextImageRelation = TextImageRelation.ImageAboveText;
+            menuAlumnos.Click += menuAlumnos_Click;
             // 
-            // iconMenuItem4
+            // menuAsistencias
             // 
-            iconMenuItem4.IconChar = FontAwesome.Sharp.IconChar.IdCardClip;
-            iconMenuItem4.IconColor = Color.Black;
-            iconMenuItem4.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconMenuItem4.ImageScaling = ToolStripItemImageScaling.None;
-            iconMenuItem4.Name = "iconMenuItem4";
-            iconMenuItem4.Size = new Size(83, 67);
-            iconMenuItem4.Text = "Membresias";
-            iconMenuItem4.TextImageRelation = TextImageRelation.ImageAboveText;
+            menuAsistencias.IconChar = FontAwesome.Sharp.IconChar.Check;
+            menuAsistencias.IconColor = Color.Black;
+            menuAsistencias.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            menuAsistencias.ImageScaling = ToolStripItemImageScaling.None;
+            menuAsistencias.Name = "menuAsistencias";
+            menuAsistencias.Size = new Size(77, 67);
+            menuAsistencias.Text = "Asistencias";
+            menuAsistencias.TextImageRelation = TextImageRelation.ImageAboveText;
+            menuAsistencias.Click += menuAsistencias_Click;
             // 
-            // iconMenuItem3
+            // menuMembresias
             // 
-            iconMenuItem3.IconChar = FontAwesome.Sharp.IconChar.Newspaper;
-            iconMenuItem3.IconColor = Color.Black;
-            iconMenuItem3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconMenuItem3.ImageScaling = ToolStripItemImageScaling.None;
-            iconMenuItem3.Name = "iconMenuItem3";
-            iconMenuItem3.Size = new Size(60, 67);
-            iconMenuItem3.Text = "Planes";
-            iconMenuItem3.TextImageRelation = TextImageRelation.ImageAboveText;
+            menuMembresias.IconChar = FontAwesome.Sharp.IconChar.IdCardClip;
+            menuMembresias.IconColor = Color.Black;
+            menuMembresias.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            menuMembresias.ImageScaling = ToolStripItemImageScaling.None;
+            menuMembresias.Name = "menuMembresias";
+            menuMembresias.Size = new Size(83, 67);
+            menuMembresias.Text = "Membresias";
+            menuMembresias.TextImageRelation = TextImageRelation.ImageAboveText;
+            menuMembresias.Click += menuMembresias_Click;
             // 
-            // iconMenuItem2
+            // menuPlanes
             // 
-            iconMenuItem2.IconChar = FontAwesome.Sharp.IconChar.MoneyBill1Wave;
-            iconMenuItem2.IconColor = Color.Black;
-            iconMenuItem2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconMenuItem2.ImageScaling = ToolStripItemImageScaling.None;
-            iconMenuItem2.Name = "iconMenuItem2";
-            iconMenuItem2.Size = new Size(60, 67);
-            iconMenuItem2.Text = "Pagos";
-            iconMenuItem2.TextImageRelation = TextImageRelation.ImageAboveText;
-            iconMenuItem2.Click += iconMenuItem2_Click;
+            menuPlanes.IconChar = FontAwesome.Sharp.IconChar.Newspaper;
+            menuPlanes.IconColor = Color.Black;
+            menuPlanes.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            menuPlanes.ImageScaling = ToolStripItemImageScaling.None;
+            menuPlanes.Name = "menuPlanes";
+            menuPlanes.Size = new Size(60, 67);
+            menuPlanes.Text = "Planes";
+            menuPlanes.TextImageRelation = TextImageRelation.ImageAboveText;
+            menuPlanes.Click += menuPlanes_Click;
             // 
-            // iconMenuItem1
+            // menuPagos
             // 
-            iconMenuItem1.IconChar = FontAwesome.Sharp.IconChar.Ruler;
-            iconMenuItem1.IconColor = Color.Black;
-            iconMenuItem1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconMenuItem1.ImageScaling = ToolStripItemImageScaling.None;
-            iconMenuItem1.Name = "iconMenuItem1";
-            iconMenuItem1.Size = new Size(65, 67);
-            iconMenuItem1.Text = "Reportes";
-            iconMenuItem1.TextImageRelation = TextImageRelation.ImageAboveText;
+            menuPagos.IconChar = FontAwesome.Sharp.IconChar.MoneyBill1Wave;
+            menuPagos.IconColor = Color.Black;
+            menuPagos.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            menuPagos.ImageScaling = ToolStripItemImageScaling.None;
+            menuPagos.Name = "menuPagos";
+            menuPagos.Size = new Size(60, 67);
+            menuPagos.Text = "Pagos";
+            menuPagos.TextImageRelation = TextImageRelation.ImageAboveText;
+            menuPagos.Click += menuPagos_Click;
             // 
-            // iconMenuItem6
+            // menuReportes
             // 
-            iconMenuItem6.IconChar = FontAwesome.Sharp.IconChar.User;
-            iconMenuItem6.IconColor = Color.Black;
-            iconMenuItem6.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconMenuItem6.ImageScaling = ToolStripItemImageScaling.None;
-            iconMenuItem6.Name = "iconMenuItem6";
-            iconMenuItem6.Size = new Size(64, 67);
-            iconMenuItem6.Text = "Usuarios";
-            iconMenuItem6.TextImageRelation = TextImageRelation.ImageAboveText;
+            menuReportes.IconChar = FontAwesome.Sharp.IconChar.Ruler;
+            menuReportes.IconColor = Color.Black;
+            menuReportes.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            menuReportes.ImageScaling = ToolStripItemImageScaling.None;
+            menuReportes.Name = "menuReportes";
+            menuReportes.Size = new Size(65, 67);
+            menuReportes.Text = "Reportes";
+            menuReportes.TextImageRelation = TextImageRelation.ImageAboveText;
+            menuReportes.Click += menuReportes_Click;
             // 
-            // iconMenuItem7
+            // menuUsuarios
             // 
-            iconMenuItem7.IconChar = FontAwesome.Sharp.IconChar.PersonWalkingDashedLineArrowRight;
-            iconMenuItem7.IconColor = Color.Black;
-            iconMenuItem7.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconMenuItem7.ImageScaling = ToolStripItemImageScaling.None;
-            iconMenuItem7.Name = "iconMenuItem7";
-            iconMenuItem7.Size = new Size(88, 67);
-            iconMenuItem7.Text = "Cerrar Sesion";
-            iconMenuItem7.TextImageRelation = TextImageRelation.ImageAboveText;
+            menuUsuarios.IconChar = FontAwesome.Sharp.IconChar.User;
+            menuUsuarios.IconColor = Color.Black;
+            menuUsuarios.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            menuUsuarios.ImageScaling = ToolStripItemImageScaling.None;
+            menuUsuarios.Name = "menuUsuarios";
+            menuUsuarios.Size = new Size(64, 67);
+            menuUsuarios.Text = "Usuarios";
+            menuUsuarios.TextImageRelation = TextImageRelation.ImageAboveText;
+            menuUsuarios.Click += menuUsuarios_Click;
             // 
-            // iconMenuItem8
+            // menuSalir
             // 
-            iconMenuItem8.IconChar = FontAwesome.Sharp.IconChar.Dumbbell;
-            iconMenuItem8.IconColor = Color.Black;
-            iconMenuItem8.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconMenuItem8.ImageScaling = ToolStripItemImageScaling.None;
-            iconMenuItem8.Name = "iconMenuItem8";
-            iconMenuItem8.Size = new Size(67, 67);
-            iconMenuItem8.Text = "Alumnos";
-            iconMenuItem8.TextImageRelation = TextImageRelation.ImageAboveText;
+            menuSalir.IconChar = FontAwesome.Sharp.IconChar.PersonWalkingDashedLineArrowRight;
+            menuSalir.IconColor = Color.Black;
+            menuSalir.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            menuSalir.ImageScaling = ToolStripItemImageScaling.None;
+            menuSalir.Name = "menuSalir";
+            menuSalir.Size = new Size(88, 67);
+            menuSalir.Text = "Cerrar Sesion";
+            menuSalir.TextImageRelation = TextImageRelation.ImageAboveText;
+            menuSalir.Click += menuSalir_Click;
+            // 
+            // contenedor
+            // 
+            contenedor.BackColor = Color.Cornsilk;
+            contenedor.Location = new Point(0, 143);
+            contenedor.Name = "contenedor";
+            contenedor.Size = new Size(1022, 551);
+            contenedor.TabIndex = 4;
+            contenedor.Paint += contenedor_Paint;
             // 
             // Inicio
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(990, 549);
+            ClientSize = new Size(1022, 691);
+            Controls.Add(contenedor);
             Controls.Add(panel1);
             Controls.Add(menuStrip2);
             Controls.Add(menuStrip1);
@@ -203,13 +246,16 @@
         private Label label1;
         private MenuStrip menuStrip2;
         private MenuStrip menuStrip1;
-        private FontAwesome.Sharp.IconMenuItem iconMenuItem1;
-        private FontAwesome.Sharp.IconMenuItem iconMenuItem5;
-        private FontAwesome.Sharp.IconMenuItem iconMenuItem4;
-        private FontAwesome.Sharp.IconMenuItem iconMenuItem3;
-        private FontAwesome.Sharp.IconMenuItem iconMenuItem2;
-        private FontAwesome.Sharp.IconMenuItem iconMenuItem6;
-        private FontAwesome.Sharp.IconMenuItem iconMenuItem7;
-        private FontAwesome.Sharp.IconMenuItem iconMenuItem8;
+        private FontAwesome.Sharp.IconMenuItem menuReportes;
+        private FontAwesome.Sharp.IconMenuItem menuAsistencias;
+        private FontAwesome.Sharp.IconMenuItem menuMembresias;
+        private FontAwesome.Sharp.IconMenuItem menuPlanes;
+        private FontAwesome.Sharp.IconMenuItem menuPagos;
+        private FontAwesome.Sharp.IconMenuItem menuUsuarios;
+        private FontAwesome.Sharp.IconMenuItem menuSalir;
+        private FontAwesome.Sharp.IconMenuItem menuAlumnos;
+        private Label lblusuario;
+        private Label Usuario;
+        private Panel contenedor;
     }
 }

@@ -17,6 +17,8 @@ namespace CapaPresentacion
         {
             InitializeComponent();
 
+            this.ControlBox = false;
+
         }
 
         private void iconButton1_Click(object sender, EventArgs e)
@@ -29,7 +31,7 @@ namespace CapaPresentacion
 
             if (oempleado != null)
             {
-                Inicio form = new Inicio();
+                Inicio form = new Inicio(oempleado);
 
                 form.Show();
                 this.Hide();
