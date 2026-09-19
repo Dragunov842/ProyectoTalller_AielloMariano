@@ -28,32 +28,176 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
+            dataGridPlan = new DataGridView();
+            colIdPlan = new DataGridViewTextBoxColumn();
+            colNombre = new DataGridViewTextBoxColumn();
+            colDescripcion = new DataGridViewTextBoxColumn();
+            colPrecio = new DataGridViewTextBoxColumn();
+            colDuracion = new DataGridViewTextBoxColumn();
+            colEstado = new DataGridViewTextBoxColumn();
+            menuStrip1 = new MenuStrip();
+            añadir = new FontAwesome.Sharp.IconMenuItem();
+            editar = new FontAwesome.Sharp.IconMenuItem();
+            eliminar = new FontAwesome.Sharp.IconMenuItem();
+            activar = new FontAwesome.Sharp.IconMenuItem();
+            buscar = new FontAwesome.Sharp.IconMenuItem();
+            txtBuscar = new ToolStripTextBox();
+            ((System.ComponentModel.ISupportInitialize)dataGridPlan).BeginInit();
+            menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
-            // label1
+            // dataGridPlan
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(273, 181);
-            label1.Name = "label1";
-            label1.Size = new Size(128, 15);
-            label1.TabIndex = 0;
-            label1.Text = "Programando una paja";
+            dataGridPlan.AllowUserToAddRows = false;
+            dataGridPlan.AllowUserToDeleteRows = false;
+            dataGridPlan.AllowUserToResizeColumns = false;
+            dataGridPlan.AllowUserToResizeRows = false;
+            dataGridPlan.BackgroundColor = SystemColors.ControlLightLight;
+            dataGridPlan.Columns.AddRange(new DataGridViewColumn[] { colIdPlan, colNombre, colDescripcion, colPrecio, colDuracion, colEstado });
+            dataGridPlan.Location = new Point(0, 74);
+            dataGridPlan.Name = "dataGridPlan";
+            dataGridPlan.Size = new Size(833, 374);
+            dataGridPlan.TabIndex = 1;
+            // 
+            // colIdPlan
+            // 
+            colIdPlan.HeaderText = "ID";
+            colIdPlan.Name = "colIdPlan";
+            // 
+            // colNombre
+            // 
+            colNombre.HeaderText = "Nombre";
+            colNombre.Name = "colNombre";
+            // 
+            // colDescripcion
+            // 
+            colDescripcion.HeaderText = "Descripcion";
+            colDescripcion.Name = "colDescripcion";
+            colDescripcion.Width = 300;
+            // 
+            // colPrecio
+            // 
+            colPrecio.HeaderText = "Precio";
+            colPrecio.Name = "colPrecio";
+            // 
+            // colDuracion
+            // 
+            colDuracion.HeaderText = "Duracion (Dias)";
+            colDuracion.Name = "colDuracion";
+            // 
+            // colEstado
+            // 
+            colEstado.HeaderText = "Estado";
+            colEstado.Name = "colEstado";
+            // 
+            // menuStrip1
+            // 
+            menuStrip1.BackColor = SystemColors.Info;
+            menuStrip1.Items.AddRange(new ToolStripItem[] { añadir, editar, eliminar, activar, buscar });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(835, 71);
+            menuStrip1.TabIndex = 6;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // añadir
+            // 
+            añadir.IconChar = FontAwesome.Sharp.IconChar.CircleArrowUp;
+            añadir.IconColor = Color.Black;
+            añadir.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            añadir.ImageScaling = ToolStripItemImageScaling.None;
+            añadir.Name = "añadir";
+            añadir.Size = new Size(60, 67);
+            añadir.Text = "Añadir";
+            añadir.TextImageRelation = TextImageRelation.ImageAboveText;
+            añadir.Click += añadir_Click;
+            // 
+            // editar
+            // 
+            editar.IconChar = FontAwesome.Sharp.IconChar.CodeCompare;
+            editar.IconColor = Color.Black;
+            editar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            editar.ImageScaling = ToolStripItemImageScaling.None;
+            editar.Name = "editar";
+            editar.Size = new Size(60, 67);
+            editar.Text = "Editar";
+            editar.TextImageRelation = TextImageRelation.ImageAboveText;
+            editar.Click += editar_Click;
+            // 
+            // eliminar
+            // 
+            eliminar.IconChar = FontAwesome.Sharp.IconChar.Cancel;
+            eliminar.IconColor = Color.Black;
+            eliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            eliminar.ImageScaling = ToolStripItemImageScaling.None;
+            eliminar.Name = "eliminar";
+            eliminar.Size = new Size(78, 67);
+            eliminar.Text = "Dar de baja";
+            eliminar.TextImageRelation = TextImageRelation.ImageAboveText;
+            eliminar.Click += eliminar_Click;
+            // 
+            // activar
+            // 
+            activar.IconChar = FontAwesome.Sharp.IconChar.Check;
+            activar.IconColor = Color.Black;
+            activar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            activar.ImageScaling = ToolStripItemImageScaling.None;
+            activar.Name = "activar";
+            activar.Size = new Size(75, 67);
+            activar.Text = "Dar de alta";
+            activar.TextImageRelation = TextImageRelation.ImageAboveText;
+            activar.Click += activar_Click;
+            // 
+            // buscar
+            // 
+            buscar.DropDownItems.AddRange(new ToolStripItem[] { txtBuscar });
+            buscar.IconChar = FontAwesome.Sharp.IconChar.Compass;
+            buscar.IconColor = Color.Black;
+            buscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            buscar.ImageScaling = ToolStripItemImageScaling.None;
+            buscar.Name = "buscar";
+            buscar.Size = new Size(60, 67);
+            buscar.Text = "Buscar";
+            buscar.TextImageRelation = TextImageRelation.ImageAboveText;
+            buscar.Click += buscar_Click;
+            // 
+            // txtBuscar
+            // 
+            txtBuscar.Name = "txtBuscar";
+            txtBuscar.Size = new Size(100, 23);
+            txtBuscar.Text = "Buscar";
             // 
             // frmPlanes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(label1);
+            ClientSize = new Size(835, 450);
+            Controls.Add(menuStrip1);
+            Controls.Add(dataGridPlan);
             Name = "frmPlanes";
             Text = "frmPlanes";
+            ((System.ComponentModel.ISupportInitialize)dataGridPlan).EndInit();
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Label label1;
+        private DataGridView dataGridPlan;
+        private MenuStrip menuStrip1;
+        private FontAwesome.Sharp.IconMenuItem añadir;
+        private FontAwesome.Sharp.IconMenuItem editar;
+        private FontAwesome.Sharp.IconMenuItem eliminar;
+        private FontAwesome.Sharp.IconMenuItem activar;
+        private FontAwesome.Sharp.IconMenuItem buscar;
+        private ToolStripTextBox txtBuscar;
+        private DataGridViewTextBoxColumn colIdPlan;
+        private DataGridViewTextBoxColumn colNombre;
+        private DataGridViewTextBoxColumn colDescripcion;
+        private DataGridViewTextBoxColumn colPrecio;
+        private DataGridViewTextBoxColumn colDuracion;
+        private DataGridViewTextBoxColumn colEstado;
     }
 }

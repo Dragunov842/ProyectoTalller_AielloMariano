@@ -27,8 +27,11 @@ namespace CapaPresentacion
             List<Empleado> lista = new CN_Empleado().Listar();
 
 
-            Empleado oempleado = new CN_Empleado().Listar().Where(x => x.Usuario == txtUsuario.Text && x.Contraseña == txtContraseña.Text).FirstOrDefault();
-
+            Empleado oempleado = new CN_Empleado().Listar()
+                 .FirstOrDefault(x =>
+                  x.Usuario == txtUsuario.Text &&
+                  x.Contraseña == txtContraseña.Text &&
+                  x.Estado);
             if (oempleado != null)
             {
                 Inicio form = new Inicio(oempleado);

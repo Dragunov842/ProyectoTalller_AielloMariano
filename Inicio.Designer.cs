@@ -32,7 +32,6 @@
             lblusuario = new Label();
             Usuario = new Label();
             label1 = new Label();
-            menuStrip2 = new MenuStrip();
             menuStrip1 = new MenuStrip();
             menuAlumnos = new FontAwesome.Sharp.IconMenuItem();
             menuAsistencias = new FontAwesome.Sharp.IconMenuItem();
@@ -56,7 +55,7 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 71);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1022, 66);
+            panel1.Size = new Size(1022, 74);
             panel1.TabIndex = 0;
             panel1.Paint += panel1_Paint;
             // 
@@ -93,15 +92,6 @@
             label1.Text = "SportXpresS";
             label1.TextAlign = ContentAlignment.MiddleCenter;
             label1.Click += label1_Click;
-            // 
-            // menuStrip2
-            // 
-            menuStrip2.Dock = DockStyle.None;
-            menuStrip2.Location = new Point(-216, -129);
-            menuStrip2.Name = "menuStrip2";
-            menuStrip2.Size = new Size(202, 24);
-            menuStrip2.TabIndex = 2;
-            menuStrip2.Text = "menuStrip2";
             // 
             // menuStrip1
             // 
@@ -225,7 +215,6 @@
             ClientSize = new Size(1022, 691);
             Controls.Add(contenedor);
             Controls.Add(panel1);
-            Controls.Add(menuStrip2);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
             Name = "Inicio";
@@ -244,7 +233,6 @@
 
         private Panel panel1;
         private Label label1;
-        private MenuStrip menuStrip2;
         private MenuStrip menuStrip1;
         private FontAwesome.Sharp.IconMenuItem menuReportes;
         private FontAwesome.Sharp.IconMenuItem menuAsistencias;

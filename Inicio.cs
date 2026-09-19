@@ -86,7 +86,7 @@ namespace CapaPresentacion
 
         private void menuAlumnos_Click(object sender, EventArgs e)
         {
-            Abrir_Formulario(menuAlumnos, new frmAlumnos());
+            Abrir_Formulario(menuAlumnos, new frmAlumnos(empleadoActual));
         }
 
         private void menuAsistencias_Click(object sender, EventArgs e)
@@ -116,7 +116,7 @@ namespace CapaPresentacion
 
         private void menuUsuarios_Click(object sender, EventArgs e)
         {
-            Abrir_Formulario(menuUsuarios, new frmUsuarios());
+            Abrir_Formulario(menuUsuarios, new frmEmpleados());
         }
 
         private void menuSalir_Click(object sender, EventArgs e)
