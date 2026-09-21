@@ -47,7 +47,6 @@ namespace CapaPresentacion
             contenedor.Dock = DockStyle.Fill;
 
             menuAlumnos.Visible = TienePermiso(listaPermisos, "Alumnos");
-            menuAsistencias.Visible = TienePermiso(listaPermisos, "Asistencias");
             menuMembresias.Visible = TienePermiso(listaPermisos, "Membresias");
             menuPlanes.Visible = TienePermiso(listaPermisos, "Planes");
             menuPagos.Visible = TienePermiso(listaPermisos, "Pagos");
@@ -87,11 +86,6 @@ namespace CapaPresentacion
         private void menuAlumnos_Click(object sender, EventArgs e)
         {
             Abrir_Formulario(menuAlumnos, new frmAlumnos(empleadoActual));
-        }
-
-        private void menuAsistencias_Click(object sender, EventArgs e)
-        {
-            Abrir_Formulario(menuAsistencias, new frmAsistencias());
         }
 
         private void menuMembresias_Click(object sender, EventArgs e)

@@ -34,7 +34,6 @@
             label1 = new Label();
             menuStrip1 = new MenuStrip();
             menuAlumnos = new FontAwesome.Sharp.IconMenuItem();
-            menuAsistencias = new FontAwesome.Sharp.IconMenuItem();
             menuMembresias = new FontAwesome.Sharp.IconMenuItem();
             menuPlanes = new FontAwesome.Sharp.IconMenuItem();
             menuPagos = new FontAwesome.Sharp.IconMenuItem();
@@ -95,7 +94,7 @@
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { menuAlumnos, menuAsistencias, menuMembresias, menuPlanes, menuPagos, menuReportes, menuUsuarios, menuSalir });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { menuAlumnos, menuMembresias, menuPlanes, menuPagos, menuReportes, menuUsuarios, menuSalir });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(1022, 71);
@@ -113,18 +112,6 @@
             menuAlumnos.Text = "Alumnos";
             menuAlumnos.TextImageRelation = TextImageRelation.ImageAboveText;
             menuAlumnos.Click += menuAlumnos_Click;
-            // 
-            // menuAsistencias
-            // 
-            menuAsistencias.IconChar = FontAwesome.Sharp.IconChar.Check;
-            menuAsistencias.IconColor = Color.Black;
-            menuAsistencias.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            menuAsistencias.ImageScaling = ToolStripItemImageScaling.None;
-            menuAsistencias.Name = "menuAsistencias";
-            menuAsistencias.Size = new Size(77, 67);
-            menuAsistencias.Text = "Asistencias";
-            menuAsistencias.TextImageRelation = TextImageRelation.ImageAboveText;
-            menuAsistencias.Click += menuAsistencias_Click;
             // 
             // menuMembresias
             // 
@@ -235,7 +222,6 @@
         private Label label1;
         private MenuStrip menuStrip1;
         private FontAwesome.Sharp.IconMenuItem menuReportes;
-        private FontAwesome.Sharp.IconMenuItem menuAsistencias;
         private FontAwesome.Sharp.IconMenuItem menuMembresias;
         private FontAwesome.Sharp.IconMenuItem menuPlanes;
         private FontAwesome.Sharp.IconMenuItem menuPagos;

@@ -33,6 +33,16 @@ namespace CapaPresentacion
 
         private void ConfigurarPermisos()
         {
+            // Por defecto no se deberia ver el botón de asistencia, solo para entrenadores
+            asistencia.Visible = false;
+
+            // Configura permisos según el rol del empleado logueado, con entrenador alcanza ya que puede poner asistencias pero no hacer crud
+            if (empleadoLogueado.oRol.idRol == 3 || empleadoLogueado.oRol.idRol == 1)
+            {
+                asistencia.Visible = true;
+            }
+            
+            
             if (empleadoLogueado.oRol.idRol == 3)
             {
                 añadir.Visible = false;
@@ -48,8 +58,50 @@ namespace CapaPresentacion
 
             dataGridAlumno.Rows.Clear();
 
+            CN_AsignacionMembresia objCNMembresia =
+                new CN_AsignacionMembresia();
+
+            CN_AsignacionPlan objCNPlan =
+                new CN_AsignacionPlan();
+
+            CD_Asistencia objCDAsistencia =
+                new CD_Asistencia();
+
             foreach (Alumno item in listaAlumno)
             {
+                // MEMBRESÍA
+                var membresia =
+                    objCNMembresia.BuscarActiva(item.idAlumno);
+
+                string nombreMembresia = "Sin membresía";
+
+                if (membresia != null)
+                {
+                    nombreMembresia =
+                        membresia.oMembresia.Nombre;
+                }
+
+                // PLANES
+                var planes =
+                    objCNPlan.ListarActivosPorAlumno(item.idAlumno);
+
+                string nombresPlanes = "Sin planes";
+
+                if (planes.Count > 0)
+                {
+                    nombresPlanes = string.Join(
+                        ", ",
+                        planes.ConvertAll(x => x.oPlan.Nombre)
+                    );
+                }
+
+                // ASISTENCIA DE HOY
+                bool asistioHoy =
+                    objCDAsistencia.YaAsistioHoy(item.idAlumno);
+
+                string presente =
+                    asistioHoy ? "Sí" : "No";
+
                 dataGridAlumno.Rows.Add(
                     item.idAlumno,
                     item.oPersona.Nombre,
@@ -58,7 +110,10 @@ namespace CapaPresentacion
                     item.oPersona.Telefono,
                     item.oPersona.Email,
                     item.Fecha_Alta.ToString("dd/MM/yyyy"),
-                    item.Estado ? "Activo" : "Inactivo"
+                    item.Estado ? "Activo" : "Inactivo",
+                    nombreMembresia,
+                    nombresPlanes,
+                    presente
                 );
             }
         }
@@ -220,10 +275,50 @@ namespace CapaPresentacion
             }
         }
 
-        private void toolStripTextBox1_Click(object sender, EventArgs e)
+        private void asistencia_Click(object sender, EventArgs e)
         {
+            if (dataGridAlumno.SelectedRows.Count == 0)
+            {
+                MessageBox.Show(
+                    "Seleccione un alumno.",
+                    "Aviso",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
 
+                return;
+            }
+
+            int indice = dataGridAlumno.SelectedRows[0].Index;
+
+            Alumno alumnoSeleccionado = listaAlumno[indice];
+
+            try
+            {
+                CN_Asistencia objCNAsistencia =
+                    new CN_Asistencia();
+
+                objCNAsistencia.Registrar(
+                    alumnoSeleccionado.idAlumno
+                );
+
+                MessageBox.Show(
+                    "Asistencia registrada correctamente.",
+                    "Éxito",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+
+                Listar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    ex.Message,
+                    "Aviso",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+            }
         }
+
 
         private void buscar_Click(object sender, EventArgs e)
         {
