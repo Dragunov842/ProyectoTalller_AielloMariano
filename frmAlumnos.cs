@@ -41,8 +41,8 @@ namespace CapaPresentacion
             {
                 asistencia.Visible = true;
             }
-            
-            
+
+
             if (empleadoLogueado.oRol.idRol == 3)
             {
                 añadir.Visible = false;
@@ -124,6 +124,15 @@ namespace CapaPresentacion
 
             dataGridAlumno.Rows.Clear();
 
+            CN_AsignacionMembresia objCNMembresia =
+                new CN_AsignacionMembresia();
+
+            CN_AsignacionPlan objCNPlan =
+                new CN_AsignacionPlan();
+
+            CD_Asistencia objCDAsistencia =
+                new CD_Asistencia();
+
             foreach (Alumno item in listaAlumno)
             {
                 if (
@@ -132,6 +141,39 @@ namespace CapaPresentacion
                     item.oPersona.DNI.ToLower().Contains(texto)
                 )
                 {
+                    // MEMBRESÍA
+                    var membresia =
+                        objCNMembresia.BuscarActiva(item.idAlumno);
+
+                    string nombreMembresia = "Sin membresía";
+
+                    if (membresia != null)
+                    {
+                        nombreMembresia =
+                            membresia.oMembresia.Nombre;
+                    }
+
+                    // PLANES
+                    var planes =
+                        objCNPlan.ListarActivosPorAlumno(item.idAlumno);
+
+                    string nombresPlanes = "Sin planes";
+
+                    if (planes.Count > 0)
+                    {
+                        nombresPlanes = string.Join(
+                            ", ",
+                            planes.ConvertAll(x => x.oPlan.Nombre)
+                        );
+                    }
+
+                    // ASISTENCIA DE HOY
+                    bool asistioHoy =
+                        objCDAsistencia.YaAsistioHoy(item.idAlumno);
+
+                    string presente =
+                        asistioHoy ? "Sí" : "No";
+
                     dataGridAlumno.Rows.Add(
                         item.idAlumno,
                         item.oPersona.Nombre,
@@ -140,7 +182,10 @@ namespace CapaPresentacion
                         item.oPersona.Telefono,
                         item.oPersona.Email,
                         item.Fecha_Alta.ToString("dd/MM/yyyy"),
-                        item.Estado ? "Activo" : "Inactivo"
+                        item.Estado ? "Activo" : "Inactivo",
+                        nombreMembresia,
+                        nombresPlanes,
+                        presente
                     );
                 }
             }
@@ -323,6 +368,11 @@ namespace CapaPresentacion
         private void buscar_Click(object sender, EventArgs e)
         {
             Buscar(txtBuscar.Text);
+        }
+
+        private void txtBuscar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

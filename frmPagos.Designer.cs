@@ -29,11 +29,6 @@
         private void InitializeComponent()
         {
             dataGridPago = new DataGridView();
-            menuStrip1 = new MenuStrip();
-            pagarMembresia = new FontAwesome.Sharp.IconMenuItem();
-            pagarPlan = new FontAwesome.Sharp.IconMenuItem();
-            buscar = new FontAwesome.Sharp.IconMenuItem();
-            txtBuscar = new ToolStripTextBox();
             colIdAlumno = new DataGridViewTextBoxColumn();
             colNombre = new DataGridViewTextBoxColumn();
             colApellido = new DataGridViewTextBoxColumn();
@@ -44,6 +39,12 @@
             colEstado = new DataGridViewTextBoxColumn();
             colMembresia = new DataGridViewTextBoxColumn();
             colPlanes = new DataGridViewTextBoxColumn();
+            menuStrip1 = new MenuStrip();
+            pagarMembresia = new FontAwesome.Sharp.IconMenuItem();
+            pagarPlan = new FontAwesome.Sharp.IconMenuItem();
+            iconBuscar = new FontAwesome.Sharp.IconMenuItem();
+            buscarToolStripMenuItem = new ToolStripMenuItem();
+            txtBuscar = new ToolStripTextBox();
             ((System.ComponentModel.ISupportInitialize)dataGridPago).BeginInit();
             menuStrip1.SuspendLayout();
             SuspendLayout();
@@ -58,61 +59,8 @@
             dataGridPago.Columns.AddRange(new DataGridViewColumn[] { colIdAlumno, colNombre, colApellido, colDNI, colTelefono, colEmail, colFechaAlta, colEstado, colMembresia, colPlanes });
             dataGridPago.Location = new Point(0, 74);
             dataGridPago.Name = "dataGridPago";
-            dataGridPago.Size = new Size(1043, 377);
+            dataGridPago.Size = new Size(1131, 511);
             dataGridPago.TabIndex = 1;
-            // 
-            // menuStrip1
-            // 
-            menuStrip1.BackColor = SystemColors.Info;
-            menuStrip1.Items.AddRange(new ToolStripItem[] { pagarMembresia, pagarPlan, buscar });
-            menuStrip1.Location = new Point(0, 0);
-            menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1041, 71);
-            menuStrip1.TabIndex = 5;
-            menuStrip1.Text = "menuStrip1";
-            // 
-            // pagarMembresia
-            // 
-            pagarMembresia.IconChar = FontAwesome.Sharp.IconChar.IdCardClip;
-            pagarMembresia.IconColor = Color.Black;
-            pagarMembresia.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            pagarMembresia.ImageScaling = ToolStripItemImageScaling.None;
-            pagarMembresia.Name = "pagarMembresia";
-            pagarMembresia.Size = new Size(111, 67);
-            pagarMembresia.Text = "Pagar Membresia";
-            pagarMembresia.TextImageRelation = TextImageRelation.ImageAboveText;
-            pagarMembresia.Click += pagarMembresia_Click;
-            // 
-            // pagarPlan
-            // 
-            pagarPlan.IconChar = FontAwesome.Sharp.IconChar.Newspaper;
-            pagarPlan.IconColor = Color.Black;
-            pagarPlan.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            pagarPlan.ImageScaling = ToolStripItemImageScaling.None;
-            pagarPlan.Name = "pagarPlan";
-            pagarPlan.Size = new Size(75, 67);
-            pagarPlan.Text = "Pagar Plan";
-            pagarPlan.TextImageRelation = TextImageRelation.ImageAboveText;
-            pagarPlan.Click += pagarPlan_Click;
-            // 
-            // buscar
-            // 
-            buscar.DropDownItems.AddRange(new ToolStripItem[] { txtBuscar });
-            buscar.IconChar = FontAwesome.Sharp.IconChar.Compass;
-            buscar.IconColor = Color.Black;
-            buscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            buscar.ImageScaling = ToolStripItemImageScaling.None;
-            buscar.Name = "buscar";
-            buscar.Size = new Size(60, 67);
-            buscar.Text = "Buscar";
-            buscar.TextImageRelation = TextImageRelation.ImageAboveText;
-            buscar.Click += buscar_Click;
-            // 
-            // txtBuscar
-            // 
-            txtBuscar.Name = "txtBuscar";
-            txtBuscar.Size = new Size(100, 23);
-            txtBuscar.Text = "Buscar";
             // 
             // colIdAlumno
             // 
@@ -163,16 +111,76 @@
             // 
             colPlanes.HeaderText = "Planes";
             colPlanes.Name = "colPlanes";
+            colPlanes.Width = 175;
+            // 
+            // menuStrip1
+            // 
+            menuStrip1.BackColor = SystemColors.Info;
+            menuStrip1.Items.AddRange(new ToolStripItem[] { pagarMembresia, pagarPlan, iconBuscar });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(1131, 71);
+            menuStrip1.TabIndex = 5;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // pagarMembresia
+            // 
+            pagarMembresia.IconChar = FontAwesome.Sharp.IconChar.IdCardClip;
+            pagarMembresia.IconColor = Color.Black;
+            pagarMembresia.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            pagarMembresia.ImageScaling = ToolStripItemImageScaling.None;
+            pagarMembresia.Name = "pagarMembresia";
+            pagarMembresia.Size = new Size(111, 67);
+            pagarMembresia.Text = "Pagar Membresia";
+            pagarMembresia.TextImageRelation = TextImageRelation.ImageAboveText;
+            pagarMembresia.Click += pagarMembresia_Click;
+            // 
+            // pagarPlan
+            // 
+            pagarPlan.IconChar = FontAwesome.Sharp.IconChar.Newspaper;
+            pagarPlan.IconColor = Color.Black;
+            pagarPlan.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            pagarPlan.ImageScaling = ToolStripItemImageScaling.None;
+            pagarPlan.Name = "pagarPlan";
+            pagarPlan.Size = new Size(75, 67);
+            pagarPlan.Text = "Pagar Plan";
+            pagarPlan.TextImageRelation = TextImageRelation.ImageAboveText;
+            pagarPlan.Click += pagarPlan_Click;
+            // 
+            // iconBuscar
+            // 
+            iconBuscar.DropDownItems.AddRange(new ToolStripItem[] { buscarToolStripMenuItem, txtBuscar });
+            iconBuscar.IconChar = FontAwesome.Sharp.IconChar.Compass;
+            iconBuscar.IconColor = Color.Black;
+            iconBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconBuscar.ImageScaling = ToolStripItemImageScaling.None;
+            iconBuscar.Name = "iconBuscar";
+            iconBuscar.Size = new Size(60, 67);
+            iconBuscar.Text = "Buscar";
+            iconBuscar.TextImageRelation = TextImageRelation.ImageAboveText;
+            iconBuscar.Click += Buscar_Click;
+            // 
+            // buscarToolStripMenuItem
+            // 
+            buscarToolStripMenuItem.Name = "buscarToolStripMenuItem";
+            buscarToolStripMenuItem.Size = new Size(180, 22);
+            buscarToolStripMenuItem.Text = "Escribir:";
+            // 
+            // txtBuscar
+            // 
+            txtBuscar.Name = "txtBuscar";
+            txtBuscar.Size = new Size(100, 23);
             // 
             // frmPagos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1041, 450);
+            ClientSize = new Size(1131, 584);
             Controls.Add(menuStrip1);
             Controls.Add(dataGridPago);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "frmPagos";
-            Text = "frmPagos";
+            Text = "Pagos";
             ((System.ComponentModel.ISupportInitialize)dataGridPago).EndInit();
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
@@ -186,8 +194,6 @@
         private MenuStrip menuStrip1;
         private FontAwesome.Sharp.IconMenuItem pagarMembresia;
         private FontAwesome.Sharp.IconMenuItem pagarPlan;
-        private FontAwesome.Sharp.IconMenuItem buscar;
-        private ToolStripTextBox txtBuscar;
         private DataGridViewTextBoxColumn colIdAlumno;
         private DataGridViewTextBoxColumn colNombre;
         private DataGridViewTextBoxColumn colApellido;
@@ -198,5 +204,8 @@
         private DataGridViewTextBoxColumn colEstado;
         private DataGridViewTextBoxColumn colMembresia;
         private DataGridViewTextBoxColumn colPlanes;
+        private FontAwesome.Sharp.IconMenuItem iconBuscar;
+        private ToolStripMenuItem buscarToolStripMenuItem;
+        private ToolStripTextBox txtBuscar;
     }
 }

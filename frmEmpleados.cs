@@ -204,6 +204,7 @@ namespace CapaPresentacion
         {
             Buscar(txtBuscar.Text);
         }
+
     }
 
 }

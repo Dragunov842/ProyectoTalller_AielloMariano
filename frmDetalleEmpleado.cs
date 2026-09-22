@@ -53,12 +53,6 @@ namespace CapaPresentacion
 
             cmbRol.Items.Add(new Rol()
             {
-                idRol = 1,
-                Nombre = "Administrador"
-            });
-
-            cmbRol.Items.Add(new Rol()
-            {
                 idRol = 2,
                 Nombre = "Recepcionista"
             });
@@ -134,6 +128,11 @@ namespace CapaPresentacion
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -41,6 +41,7 @@
             eliminar = new FontAwesome.Sharp.IconMenuItem();
             activar = new FontAwesome.Sharp.IconMenuItem();
             buscar = new FontAwesome.Sharp.IconMenuItem();
+            escribirToolStripMenuItem = new ToolStripMenuItem();
             txtBuscar = new ToolStripTextBox();
             ((System.ComponentModel.ISupportInitialize)dataGridPlan).BeginInit();
             menuStrip1.SuspendLayout();
@@ -56,7 +57,7 @@
             dataGridPlan.Columns.AddRange(new DataGridViewColumn[] { colIdPlan, colNombre, colDescripcion, colPrecio, colDuracion, colEstado });
             dataGridPlan.Location = new Point(0, 74);
             dataGridPlan.Name = "dataGridPlan";
-            dataGridPlan.Size = new Size(833, 374);
+            dataGridPlan.Size = new Size(1130, 494);
             dataGridPlan.TabIndex = 1;
             // 
             // colIdPlan
@@ -73,7 +74,7 @@
             // 
             colDescripcion.HeaderText = "Descripcion";
             colDescripcion.Name = "colDescripcion";
-            colDescripcion.Width = 300;
+            colDescripcion.Width = 500;
             // 
             // colPrecio
             // 
@@ -96,7 +97,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { añadir, editar, eliminar, activar, buscar });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(835, 71);
+            menuStrip1.Size = new Size(1130, 71);
             menuStrip1.TabIndex = 6;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -150,7 +151,7 @@
             // 
             // buscar
             // 
-            buscar.DropDownItems.AddRange(new ToolStripItem[] { txtBuscar });
+            buscar.DropDownItems.AddRange(new ToolStripItem[] { escribirToolStripMenuItem, txtBuscar });
             buscar.IconChar = FontAwesome.Sharp.IconChar.Compass;
             buscar.IconColor = Color.Black;
             buscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -161,19 +162,25 @@
             buscar.TextImageRelation = TextImageRelation.ImageAboveText;
             buscar.Click += buscar_Click;
             // 
+            // escribirToolStripMenuItem
+            // 
+            escribirToolStripMenuItem.Name = "escribirToolStripMenuItem";
+            escribirToolStripMenuItem.Size = new Size(180, 22);
+            escribirToolStripMenuItem.Text = "Escribir:";
+            // 
             // txtBuscar
             // 
             txtBuscar.Name = "txtBuscar";
             txtBuscar.Size = new Size(100, 23);
-            txtBuscar.Text = "Buscar";
             // 
             // frmPlanes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(835, 450);
+            ClientSize = new Size(1130, 568);
             Controls.Add(menuStrip1);
             Controls.Add(dataGridPlan);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "frmPlanes";
             Text = "frmPlanes";
             ((System.ComponentModel.ISupportInitialize)dataGridPlan).EndInit();
@@ -192,12 +199,13 @@
         private FontAwesome.Sharp.IconMenuItem eliminar;
         private FontAwesome.Sharp.IconMenuItem activar;
         private FontAwesome.Sharp.IconMenuItem buscar;
-        private ToolStripTextBox txtBuscar;
         private DataGridViewTextBoxColumn colIdPlan;
         private DataGridViewTextBoxColumn colNombre;
         private DataGridViewTextBoxColumn colDescripcion;
         private DataGridViewTextBoxColumn colPrecio;
         private DataGridViewTextBoxColumn colDuracion;
         private DataGridViewTextBoxColumn colEstado;
+        private ToolStripMenuItem escribirToolStripMenuItem;
+        private ToolStripTextBox txtBuscar;
     }
 }

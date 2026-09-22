@@ -1,5 +1,6 @@
 ﻿using CapaEntidad;
 using CapaNegocio;
+using System.Linq;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -77,6 +78,12 @@ namespace CapaPresentacion
 
             dataGridPago.Rows.Clear();
 
+            CN_AsignacionMembresia objCNMembresia =
+                new CN_AsignacionMembresia();
+
+            CN_AsignacionPlan objCNPlan =
+                new CN_AsignacionPlan();
+
             foreach (Alumno item in listaAlumno)
             {
                 if (
@@ -85,6 +92,29 @@ namespace CapaPresentacion
                     item.oPersona.DNI.ToLower().Contains(texto)
                 )
                 {
+                    // MEMBRESÍA
+                    var membresia = objCNMembresia.BuscarActiva(item.idAlumno);
+
+                    string nombreMembresia = "Sin membresía";
+
+                    if (membresia != null)
+                    {
+                        nombreMembresia = membresia.oMembresia.Nombre;
+                    }
+
+                    // PLANES
+                    var planes = objCNPlan.ListarActivosPorAlumno(item.idAlumno);
+
+                    string nombresPlanes = "Sin planes";
+
+                    if (planes.Count > 0)
+                    {
+                        nombresPlanes = string.Join(
+                            ", ",
+                            planes.ConvertAll(x => x.oPlan.Nombre)
+                        );
+                    }
+
                     dataGridPago.Rows.Add(
                         item.idAlumno,
                         item.oPersona.Nombre,
@@ -93,7 +123,9 @@ namespace CapaPresentacion
                         item.oPersona.Telefono,
                         item.oPersona.Email,
                         item.Fecha_Alta.ToString("dd/MM/yyyy"),
-                        item.Estado ? "Activo" : "Inactivo"
+                        item.Estado ? "Activo" : "Inactivo",
+                        nombreMembresia,
+                        nombresPlanes
                     );
                 }
             }
@@ -112,9 +144,23 @@ namespace CapaPresentacion
                 return;
             }
 
-            int indice = dataGridPago.SelectedRows[0].Index;
+            int idAlumno = Convert.ToInt32(
+                dataGridPago.SelectedRows[0].Cells[0].Value
+            );
 
-            Alumno alumnoSeleccionado = listaAlumno[indice];
+            Alumno alumnoSeleccionado = listaAlumno
+                .FirstOrDefault(x => x.idAlumno == idAlumno);
+
+            if (alumnoSeleccionado == null)
+            {
+                MessageBox.Show(
+                    "No se pudo encontrar el alumno seleccionado.",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+                return;
+            }
 
             using (frmDetallePagoMembresia formulario =
                    new frmDetallePagoMembresia(alumnoSeleccionado))
@@ -123,10 +169,6 @@ namespace CapaPresentacion
             }
         }
 
-        private void buscar_Click(object sender, EventArgs e)
-        {
-            Buscar(txtBuscar.Text);
-        }
 
         private void pagarPlan_Click(object sender, EventArgs e)
         {
@@ -141,9 +183,23 @@ namespace CapaPresentacion
                 return;
             }
 
-            int indice = dataGridPago.SelectedRows[0].Index;
+            int idAlumno = Convert.ToInt32(
+                dataGridPago.SelectedRows[0].Cells[0].Value
+            );
 
-            Alumno alumnoSeleccionado = listaAlumno[indice];
+            Alumno alumnoSeleccionado = listaAlumno
+                .FirstOrDefault(x => x.idAlumno == idAlumno);
+
+            if (alumnoSeleccionado == null)
+            {
+                MessageBox.Show(
+                    "No se pudo encontrar el alumno seleccionado.",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+                return;
+            }
 
             using (frmDetallePagoPlan formulario =
                    new frmDetallePagoPlan(alumnoSeleccionado))
@@ -152,6 +208,11 @@ namespace CapaPresentacion
 
                 Listar();
             }
+        }
+
+        private void Buscar_Click(object sender, EventArgs e)
+        {
+            Buscar(txtBuscar.Text);
         }
     }
 }

@@ -93,6 +93,7 @@
             btnCancelar.Text = "Cancelar";
             btnCancelar.TextAlign = ContentAlignment.BottomCenter;
             btnCancelar.UseVisualStyleBackColor = false;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // label2
             // 
@@ -154,7 +155,9 @@
             Controls.Add(txtDescripcion);
             Controls.Add(txtDuracion);
             Controls.Add(txtPrecio);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "frmDetallePlanes";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "frmDetallePlanes";
             ResumeLayout(false);
             PerformLayout();

@@ -54,7 +54,7 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 71);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1022, 74);
+            panel1.Size = new Size(1128, 74);
             panel1.TabIndex = 0;
             panel1.Paint += panel1_Paint;
             // 
@@ -62,7 +62,7 @@
             // 
             lblusuario.AutoSize = true;
             lblusuario.ForeColor = Color.FromArgb(192, 0, 0);
-            lblusuario.Location = new Point(851, 35);
+            lblusuario.Location = new Point(940, 37);
             lblusuario.Name = "lblusuario";
             lblusuario.Size = new Size(59, 15);
             lblusuario.TabIndex = 2;
@@ -72,7 +72,7 @@
             // 
             Usuario.AutoSize = true;
             Usuario.Font = new Font("Segoe UI", 10F);
-            Usuario.Location = new Point(795, 33);
+            Usuario.Location = new Point(884, 35);
             Usuario.Name = "Usuario";
             Usuario.Size = new Size(59, 19);
             Usuario.TabIndex = 1;
@@ -84,7 +84,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 25F);
             label1.ForeColor = Color.Gold;
-            label1.Location = new Point(415, 8);
+            label1.Location = new Point(439, 12);
             label1.Name = "label1";
             label1.Size = new Size(204, 46);
             label1.TabIndex = 0;
@@ -97,7 +97,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { menuAlumnos, menuMembresias, menuPlanes, menuPagos, menuReportes, menuUsuarios, menuSalir });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1022, 71);
+            menuStrip1.Size = new Size(1128, 71);
             menuStrip1.TabIndex = 3;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -190,7 +190,7 @@
             contenedor.BackColor = Color.Cornsilk;
             contenedor.Location = new Point(0, 143);
             contenedor.Name = "contenedor";
-            contenedor.Size = new Size(1022, 551);
+            contenedor.Size = new Size(1128, 569);
             contenedor.TabIndex = 4;
             contenedor.Paint += contenedor_Paint;
             // 
@@ -199,10 +199,11 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(1022, 691);
+            ClientSize = new Size(1128, 712);
             Controls.Add(contenedor);
             Controls.Add(panel1);
             Controls.Add(menuStrip1);
+            FormBorderStyle = FormBorderStyle.None;
             MainMenuStrip = menuStrip1;
             Name = "Inicio";
             StartPosition = FormStartPosition.CenterScreen;

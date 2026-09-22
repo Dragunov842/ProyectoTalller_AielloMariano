@@ -162,6 +162,7 @@
             Controls.Add(txtContraseña);
             Controls.Add(txtUsuario);
             Controls.Add(panel1);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "Login";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";

@@ -82,6 +82,7 @@
             btnCancelar.Text = "Cancelar";
             btnCancelar.TextAlign = ContentAlignment.BottomCenter;
             btnCancelar.UseVisualStyleBackColor = false;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // btnGuardar
             // 
@@ -154,6 +155,7 @@
             Controls.Add(txtDuracion);
             Controls.Add(txtPrecio);
             Name = "frmDetalleMembresia";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "frmDetalleMembresia";
             ResumeLayout(false);
             PerformLayout();

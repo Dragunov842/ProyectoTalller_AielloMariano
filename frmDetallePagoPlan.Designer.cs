@@ -104,6 +104,7 @@
             btnCancelar.Text = "Cancelar";
             btnCancelar.TextAlign = ContentAlignment.BottomCenter;
             btnCancelar.UseVisualStyleBackColor = false;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // btnPagar
             // 
@@ -136,8 +137,11 @@
             Controls.Add(txtPrecio);
             Controls.Add(btnCancelar);
             Controls.Add(btnPagar);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "frmDetallePagoPlan";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "frmDetallePagoPlan";
+            Load += frmDetallePagoPlan_Load;
             ResumeLayout(false);
             PerformLayout();
         }

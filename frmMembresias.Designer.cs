@@ -41,6 +41,7 @@
             eliminar = new FontAwesome.Sharp.IconMenuItem();
             activar = new FontAwesome.Sharp.IconMenuItem();
             buscar = new FontAwesome.Sharp.IconMenuItem();
+            escribirToolStripMenuItem = new ToolStripMenuItem();
             txtBuscar = new ToolStripTextBox();
             ((System.ComponentModel.ISupportInitialize)dataGridMembresias).BeginInit();
             menuStrip1.SuspendLayout();
@@ -56,7 +57,7 @@
             dataGridMembresias.Columns.AddRange(new DataGridViewColumn[] { colIdMembresia, colNombre, colDescripcion, colPrecio, colDuracion, colEstado });
             dataGridMembresias.Location = new Point(0, 74);
             dataGridMembresias.Name = "dataGridMembresias";
-            dataGridMembresias.Size = new Size(833, 377);
+            dataGridMembresias.Size = new Size(1129, 511);
             dataGridMembresias.TabIndex = 2;
             // 
             // colIdMembresia
@@ -73,7 +74,7 @@
             // 
             colDescripcion.HeaderText = "Descripcion";
             colDescripcion.Name = "colDescripcion";
-            colDescripcion.Width = 300;
+            colDescripcion.Width = 500;
             // 
             // colPrecio
             // 
@@ -96,7 +97,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { añadir, editar, eliminar, activar, buscar });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(836, 71);
+            menuStrip1.Size = new Size(1129, 71);
             menuStrip1.TabIndex = 7;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -150,7 +151,7 @@
             // 
             // buscar
             // 
-            buscar.DropDownItems.AddRange(new ToolStripItem[] { txtBuscar });
+            buscar.DropDownItems.AddRange(new ToolStripItem[] { escribirToolStripMenuItem, txtBuscar });
             buscar.IconChar = FontAwesome.Sharp.IconChar.Compass;
             buscar.IconColor = Color.Black;
             buscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -161,19 +162,25 @@
             buscar.TextImageRelation = TextImageRelation.ImageAboveText;
             buscar.Click += buscar_Click;
             // 
+            // escribirToolStripMenuItem
+            // 
+            escribirToolStripMenuItem.Name = "escribirToolStripMenuItem";
+            escribirToolStripMenuItem.Size = new Size(180, 22);
+            escribirToolStripMenuItem.Text = "Escribir:";
+            // 
             // txtBuscar
             // 
             txtBuscar.Name = "txtBuscar";
             txtBuscar.Size = new Size(100, 23);
-            txtBuscar.Text = "Buscar";
             // 
             // frmMembresias
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(836, 452);
+            ClientSize = new Size(1129, 584);
             Controls.Add(menuStrip1);
             Controls.Add(dataGridMembresias);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "frmMembresias";
             Text = "frmMembresia";
             ((System.ComponentModel.ISupportInitialize)dataGridMembresias).EndInit();
@@ -186,18 +193,19 @@
         #endregion
 
         private DataGridView dataGridMembresias;
-        private DataGridViewTextBoxColumn colIdMembresia;
-        private DataGridViewTextBoxColumn colNombre;
-        private DataGridViewTextBoxColumn colDescripcion;
-        private DataGridViewTextBoxColumn colPrecio;
-        private DataGridViewTextBoxColumn colDuracion;
-        private DataGridViewTextBoxColumn colEstado;
         private MenuStrip menuStrip1;
         private FontAwesome.Sharp.IconMenuItem añadir;
         private FontAwesome.Sharp.IconMenuItem editar;
         private FontAwesome.Sharp.IconMenuItem eliminar;
         private FontAwesome.Sharp.IconMenuItem activar;
         private FontAwesome.Sharp.IconMenuItem buscar;
+        private DataGridViewTextBoxColumn colIdMembresia;
+        private DataGridViewTextBoxColumn colNombre;
+        private DataGridViewTextBoxColumn colDescripcion;
+        private DataGridViewTextBoxColumn colPrecio;
+        private DataGridViewTextBoxColumn colDuracion;
+        private DataGridViewTextBoxColumn colEstado;
+        private ToolStripMenuItem escribirToolStripMenuItem;
         private ToolStripTextBox txtBuscar;
     }
 }

@@ -110,6 +110,7 @@
             btnCancelar.Text = "Cancelar";
             btnCancelar.TextAlign = ContentAlignment.BottomCenter;
             btnCancelar.UseVisualStyleBackColor = false;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // label1
             // 
@@ -175,8 +176,10 @@
             Controls.Add(txtEmail);
             Controls.Add(txtTelefono);
             Controls.Add(txtNombre);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "frmDetalleAlumno";
-            Text = "frmDetalleAlumno";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Detalle Alumno";
             ResumeLayout(false);
             PerformLayout();
         }

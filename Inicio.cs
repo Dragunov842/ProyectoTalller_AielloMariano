@@ -123,8 +123,6 @@ namespace CapaPresentacion
 
             if (resultado == DialogResult.Yes)
             {
-                Login login = new Login();
-                login.Show();
                 this.Close();
             }
         }

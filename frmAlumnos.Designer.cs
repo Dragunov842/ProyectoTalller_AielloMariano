@@ -37,16 +37,17 @@
             activar = new FontAwesome.Sharp.IconMenuItem();
             asistencia = new FontAwesome.Sharp.IconMenuItem();
             buscar = new FontAwesome.Sharp.IconMenuItem();
+            buscarToolStripMenuItem = new ToolStripMenuItem();
             txtBuscar = new ToolStripTextBox();
             dataGridAlumno = new DataGridView();
-            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn5 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn6 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn7 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn8 = new DataGridViewTextBoxColumn();
+            colIDAlumno = new DataGridViewTextBoxColumn();
+            colNombre = new DataGridViewTextBoxColumn();
+            colApellido = new DataGridViewTextBoxColumn();
+            colDNI = new DataGridViewTextBoxColumn();
+            colTelefono = new DataGridViewTextBoxColumn();
+            colEmail = new DataGridViewTextBoxColumn();
+            colFechaAlta = new DataGridViewTextBoxColumn();
+            colEstado = new DataGridViewTextBoxColumn();
             colMembresia = new DataGridViewTextBoxColumn();
             colPlanes = new DataGridViewTextBoxColumn();
             colAsistencia = new DataGridViewTextBoxColumn();
@@ -78,7 +79,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { añadir, editar, eliminar, activar, asistencia, buscar });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1113, 71);
+            menuStrip1.Size = new Size(1128, 71);
             menuStrip1.TabIndex = 4;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -144,7 +145,7 @@
             // 
             // buscar
             // 
-            buscar.DropDownItems.AddRange(new ToolStripItem[] { txtBuscar });
+            buscar.DropDownItems.AddRange(new ToolStripItem[] { buscarToolStripMenuItem, txtBuscar });
             buscar.IconChar = FontAwesome.Sharp.IconChar.Compass;
             buscar.IconColor = Color.Black;
             buscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -155,11 +156,16 @@
             buscar.TextImageRelation = TextImageRelation.ImageAboveText;
             buscar.Click += buscar_Click;
             // 
+            // buscarToolStripMenuItem
+            // 
+            buscarToolStripMenuItem.Name = "buscarToolStripMenuItem";
+            buscarToolStripMenuItem.Size = new Size(160, 22);
+            buscarToolStripMenuItem.Text = "Escribir:";
+            // 
             // txtBuscar
             // 
             txtBuscar.Name = "txtBuscar";
             txtBuscar.Size = new Size(100, 23);
-            txtBuscar.Text = "Buscar";
             // 
             // dataGridAlumno
             // 
@@ -168,54 +174,54 @@
             dataGridAlumno.AllowUserToResizeColumns = false;
             dataGridAlumno.AllowUserToResizeRows = false;
             dataGridAlumno.BackgroundColor = SystemColors.ControlLightLight;
-            dataGridAlumno.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4, dataGridViewTextBoxColumn5, dataGridViewTextBoxColumn6, dataGridViewTextBoxColumn7, dataGridViewTextBoxColumn8, colMembresia, colPlanes, colAsistencia });
+            dataGridAlumno.Columns.AddRange(new DataGridViewColumn[] { colIDAlumno, colNombre, colApellido, colDNI, colTelefono, colEmail, colFechaAlta, colEstado, colMembresia, colPlanes, colAsistencia });
             dataGridAlumno.Location = new Point(0, 74);
             dataGridAlumno.Name = "dataGridAlumno";
-            dataGridAlumno.Size = new Size(1111, 377);
+            dataGridAlumno.Size = new Size(1128, 509);
             dataGridAlumno.TabIndex = 5;
             // 
-            // dataGridViewTextBoxColumn1
+            // colIDAlumno
             // 
-            dataGridViewTextBoxColumn1.FillWeight = 50F;
-            dataGridViewTextBoxColumn1.HeaderText = "ID";
-            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            dataGridViewTextBoxColumn1.Width = 50;
+            colIDAlumno.FillWeight = 50F;
+            colIDAlumno.HeaderText = "ID";
+            colIDAlumno.Name = "colIDAlumno";
+            colIDAlumno.Width = 50;
             // 
-            // dataGridViewTextBoxColumn2
+            // colNombre
             // 
-            dataGridViewTextBoxColumn2.HeaderText = "Nombre";
-            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            colNombre.HeaderText = "Nombre";
+            colNombre.Name = "colNombre";
             // 
-            // dataGridViewTextBoxColumn3
+            // colApellido
             // 
-            dataGridViewTextBoxColumn3.HeaderText = "Apellido";
-            dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            colApellido.HeaderText = "Apellido";
+            colApellido.Name = "colApellido";
             // 
-            // dataGridViewTextBoxColumn4
+            // colDNI
             // 
-            dataGridViewTextBoxColumn4.HeaderText = "DNI";
-            dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            colDNI.HeaderText = "DNI";
+            colDNI.Name = "colDNI";
             // 
-            // dataGridViewTextBoxColumn5
+            // colTelefono
             // 
-            dataGridViewTextBoxColumn5.HeaderText = "Teléfono";
-            dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            colTelefono.HeaderText = "Teléfono";
+            colTelefono.Name = "colTelefono";
             // 
-            // dataGridViewTextBoxColumn6
+            // colEmail
             // 
-            dataGridViewTextBoxColumn6.HeaderText = "Email";
-            dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            colEmail.HeaderText = "Email";
+            colEmail.Name = "colEmail";
             // 
-            // dataGridViewTextBoxColumn7
+            // colFechaAlta
             // 
-            dataGridViewTextBoxColumn7.HeaderText = "Fecha Alta";
-            dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            colFechaAlta.HeaderText = "Fecha Alta";
+            colFechaAlta.Name = "colFechaAlta";
             // 
-            // dataGridViewTextBoxColumn8
+            // colEstado
             // 
-            dataGridViewTextBoxColumn8.HeaderText = "Estado";
-            dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            dataGridViewTextBoxColumn8.Width = 50;
+            colEstado.HeaderText = "Estado";
+            colEstado.Name = "colEstado";
+            colEstado.Width = 50;
             // 
             // colMembresia
             // 
@@ -238,9 +244,10 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1113, 449);
+            ClientSize = new Size(1128, 584);
             Controls.Add(dataGridAlumno);
             Controls.Add(menuStrip1);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "frmAlumnos";
             Text = "frmAlumno";
             menuStrip1.ResumeLayout(false);
@@ -259,17 +266,18 @@
         private FontAwesome.Sharp.IconMenuItem eliminar;
         private FontAwesome.Sharp.IconMenuItem activar;
         private FontAwesome.Sharp.IconMenuItem buscar;
-        private ToolStripTextBox txtBuscar;
         private FontAwesome.Sharp.IconMenuItem asistencia;
         private DataGridView dataGridAlumno;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private ToolStripMenuItem buscarToolStripMenuItem;
+        private ToolStripTextBox txtBuscar;
+        private DataGridViewTextBoxColumn colIDAlumno;
+        private DataGridViewTextBoxColumn colNombre;
+        private DataGridViewTextBoxColumn colApellido;
+        private DataGridViewTextBoxColumn colDNI;
+        private DataGridViewTextBoxColumn colTelefono;
+        private DataGridViewTextBoxColumn colEmail;
+        private DataGridViewTextBoxColumn colFechaAlta;
+        private DataGridViewTextBoxColumn colEstado;
         private DataGridViewTextBoxColumn colMembresia;
         private DataGridViewTextBoxColumn colPlanes;
         private DataGridViewTextBoxColumn colAsistencia;

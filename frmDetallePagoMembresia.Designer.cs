@@ -104,6 +104,7 @@
             btnCancelar.Text = "Cancelar";
             btnCancelar.TextAlign = ContentAlignment.BottomCenter;
             btnCancelar.UseVisualStyleBackColor = false;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // btnPagar
             // 
@@ -136,7 +137,9 @@
             Controls.Add(txtPrecio);
             Controls.Add(btnCancelar);
             Controls.Add(btnPagar);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "frmDetallePagoMembresia";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "frmDetallePagoMembresia";
             ResumeLayout(false);
             PerformLayout();
