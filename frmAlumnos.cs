@@ -33,10 +33,10 @@ namespace CapaPresentacion
 
         private void ConfigurarPermisos()
         {
-            // Por defecto no se deberia ver el botón de asistencia, solo para entrenadores
+           
             asistencia.Visible = false;
 
-            // Configura permisos según el rol del empleado logueado, con entrenador alcanza ya que puede poner asistencias pero no hacer crud
+           
             if (empleadoLogueado.oRol.idRol == 3 || empleadoLogueado.oRol.idRol == 1)
             {
                 asistencia.Visible = true;
@@ -69,7 +69,7 @@ namespace CapaPresentacion
 
             foreach (Alumno item in listaAlumno)
             {
-                // MEMBRESÍA
+                
                 var membresia =
                     objCNMembresia.BuscarActiva(item.idAlumno);
 
@@ -81,7 +81,7 @@ namespace CapaPresentacion
                         membresia.oMembresia.Nombre;
                 }
 
-                // PLANES
+                
                 var planes =
                     objCNPlan.ListarActivosPorAlumno(item.idAlumno);
 
@@ -95,7 +95,7 @@ namespace CapaPresentacion
                     );
                 }
 
-                // ASISTENCIA DE HOY
+                
                 bool asistioHoy =
                     objCDAsistencia.YaAsistioHoy(item.idAlumno);
 
@@ -141,7 +141,7 @@ namespace CapaPresentacion
                     item.oPersona.DNI.ToLower().Contains(texto)
                 )
                 {
-                    // MEMBRESÍA
+                   
                     var membresia =
                         objCNMembresia.BuscarActiva(item.idAlumno);
 
@@ -153,7 +153,7 @@ namespace CapaPresentacion
                             membresia.oMembresia.Nombre;
                     }
 
-                    // PLANES
+                    
                     var planes =
                         objCNPlan.ListarActivosPorAlumno(item.idAlumno);
 
@@ -167,7 +167,7 @@ namespace CapaPresentacion
                         );
                     }
 
-                    // ASISTENCIA DE HOY
+                    
                     bool asistioHoy =
                         objCDAsistencia.YaAsistioHoy(item.idAlumno);
 

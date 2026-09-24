@@ -34,7 +34,7 @@ namespace CapaPresentacion
 
             foreach (Alumno item in listaAlumno)
             {
-                // MEMBRESÍA
+                
                 var membresia = objCNMembresia.BuscarActiva(item.idAlumno);
 
                 string nombreMembresia = "Sin membresía";
@@ -44,7 +44,7 @@ namespace CapaPresentacion
                     nombreMembresia = membresia.oMembresia.Nombre;
                 }
 
-                // PLANES
+               
                 var planes = objCNPlan.ListarActivosPorAlumno(item.idAlumno);
 
                 string nombresPlanes = "Sin planes";
@@ -92,7 +92,7 @@ namespace CapaPresentacion
                     item.oPersona.DNI.ToLower().Contains(texto)
                 )
                 {
-                    // MEMBRESÍA
+                    
                     var membresia = objCNMembresia.BuscarActiva(item.idAlumno);
 
                     string nombreMembresia = "Sin membresía";
@@ -102,7 +102,7 @@ namespace CapaPresentacion
                         nombreMembresia = membresia.oMembresia.Nombre;
                     }
 
-                    // PLANES
+                    
                     var planes = objCNPlan.ListarActivosPorAlumno(item.idAlumno);
 
                     string nombresPlanes = "Sin planes";
