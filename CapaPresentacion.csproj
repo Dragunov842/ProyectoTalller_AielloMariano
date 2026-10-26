@@ -32,4 +32,12 @@
     </EmbeddedResource>
   </ItemGroup>
 
+
+	<ItemGroup>
+		<Compile Remove="CapaDatos\**\*.cs" />
+		<Compile Remove="CapaEntidad\**\*.cs" />
+		<Compile Remove="CapaNegocio\**\*.cs" />
+	</ItemGroup>
+
+
 </Project>

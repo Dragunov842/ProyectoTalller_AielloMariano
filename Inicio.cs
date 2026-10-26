@@ -35,7 +35,7 @@ namespace CapaPresentacion
 
         private void Inicio_Load(object sender, EventArgs e)
         {
-            List<Permiso> listaPermisos = new CN_Permiso().Listar(empleadoActual.oRol.idRol);   
+            List<Permiso> listaPermisos = new CN_Permiso().Listar(empleadoActual.oRol.idRol);
 
             lblusuario.Text = empleadoActual.Usuario;
 
@@ -125,6 +125,11 @@ namespace CapaPresentacion
             {
                 this.Close();
             }
+        }
+
+        private void menuBackup_Click(object sender, EventArgs e)
+        {
+            Abrir_Formulario(menuAlumnos, new frmBackup());
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
