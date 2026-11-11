@@ -17,8 +17,83 @@ namespace CapaPresentacion
         {
             InitializeComponent();
 
+            ConfigurarDiseñoResponsive();
+
             Listar();
+
+            this.iconBuscar.ToolTipText =
+                "Buscar un alumno por nombre, apellido o DNI." +
+                Environment.NewLine +
+                "Nota: Al presionar este botón, se desplegará un campo de búsqueda. " +
+                "Ingrese el dato que desea buscar y vuelva a presionar el botón " +
+                "Buscar para ejecutar la búsqueda.";
+
+            this.pagarPlan.ToolTipText =
+                "Realizar un pago por un plan." +
+                Environment.NewLine +
+                "Nota: Para pagar un plan, primero debe seleccionar al alumno que lo va a pagar " +
+                "en la tabla mediante la flecha ubicada a la izquierda de su registro. " +
+                "Luego, presione el botón Pagar Plan.";
+
+            this.pagarMembresia.ToolTipText =
+                "Realizar un pago por una membresía." +
+                Environment.NewLine +
+                "Nota: Para pagar una membresía, primero debe seleccionar al alumno que la va a pagar " +
+                "en la tabla mediante la flecha ubicada a la izquierda de su registro. " +
+                "Luego, presione el botón Pagar Membresía.";
         }
+
+
+        private void ConfigurarDiseñoResponsive()
+        {
+            // Menú superior
+            menuStrip1.Dock = DockStyle.Top;
+            menuStrip1.AutoSize = false;
+            menuStrip1.Height = 71;
+            menuStrip1.GripStyle = ToolStripGripStyle.Hidden;
+            menuStrip1.CanOverflow = true;
+            menuStrip1.LayoutStyle = ToolStripLayoutStyle.HorizontalStackWithOverflow;
+
+            foreach (ToolStripItem item in menuStrip1.Items)
+            {
+                item.Overflow = ToolStripItemOverflow.AsNeeded;
+            }
+
+            // Tabla de pagos
+            dataGridPago.Dock = DockStyle.Fill;
+            dataGridPago.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridPago.ScrollBars = ScrollBars.Both;
+            dataGridPago.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridPago.MultiSelect = false;
+
+            dataGridPago.ColumnHeadersHeightSizeMode =
+                DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+
+            dataGridPago.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+            dataGridPago.DefaultCellStyle.WrapMode = DataGridViewTriState.False;
+
+            // Distribución de columnas
+            ConfigurarColumna(colIdAlumno, 45, 5);
+            ConfigurarColumna(colNombre, 85, 9);
+            ConfigurarColumna(colApellido, 85, 9);
+            ConfigurarColumna(colDNI, 75, 8);
+            ConfigurarColumna(colTelefono, 90, 9);
+            ConfigurarColumna(colEmail, 120, 13);
+            ConfigurarColumna(colFechaAlta, 85, 8);
+            ConfigurarColumna(colEstado, 65, 6);
+            ConfigurarColumna(colMembresia, 120, 13);
+            ConfigurarColumna(colPlanes, 150, 20);
+        }
+
+        private void ConfigurarColumna(
+            DataGridViewColumn columna,
+            int anchoMinimo,
+            float proporcion)
+        {
+            columna.MinimumWidth = anchoMinimo;
+            columna.FillWeight = proporcion;
+        }
+
 
         private void Listar()
         {

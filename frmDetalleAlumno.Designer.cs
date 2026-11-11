@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             txtNombre = new TextBox();
             txtTelefono = new TextBox();
             txtEmail = new TextBox();
@@ -40,11 +41,12 @@
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
+            toolTipMensaje = new ToolTip(components);
             SuspendLayout();
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(286, 47);
+            txtNombre.Location = new Point(286, 123);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(241, 23);
             txtNombre.TabIndex = 0;
@@ -66,14 +68,14 @@
             // 
             // txtDNI
             // 
-            txtDNI.Location = new Point(286, 179);
+            txtDNI.Location = new Point(286, 69);
             txtDNI.Name = "txtDNI";
             txtDNI.Size = new Size(241, 23);
             txtDNI.TabIndex = 3;
             // 
             // txtApellido
             // 
-            txtApellido.Location = new Point(286, 113);
+            txtApellido.Location = new Point(286, 189);
             txtApellido.Name = "txtApellido";
             txtApellido.Size = new Size(241, 23);
             txtApellido.TabIndex = 4;
@@ -115,7 +117,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(377, 29);
+            label1.Location = new Point(377, 105);
             label1.Name = "label1";
             label1.Size = new Size(51, 15);
             label1.TabIndex = 7;
@@ -125,7 +127,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(377, 95);
+            label2.Location = new Point(377, 171);
             label2.Name = "label2";
             label2.Size = new Size(51, 15);
             label2.TabIndex = 8;
@@ -134,7 +136,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(389, 161);
+            label3.Location = new Point(389, 51);
             label3.Name = "label3";
             label3.Size = new Size(27, 15);
             label3.TabIndex = 9;
@@ -198,5 +200,6 @@
         private Label label3;
         private Label label4;
         private Label label5;
+        private ToolTip toolTipMensaje;
     }
 }

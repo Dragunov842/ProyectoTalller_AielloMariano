@@ -17,7 +17,12 @@ namespace CapaPresentacion
         {
             InitializeComponent();
 
+            this.AcceptButton = Ingresar;
+
             this.ControlBox = false;
+
+            this.toolTipMensaje.SetToolTip(this.Ingresar, "Iniciar sesión");
+            this.toolTipMensaje.SetToolTip(this.Salir, "Cerrar el sistema");
 
         }
 
@@ -74,5 +79,13 @@ namespace CapaPresentacion
         {
 
         }
+
+
+        private void toolTip1_Popup(object sender, PopupEventArgs e)
+        {
+
+        }
+
+
     }
 }

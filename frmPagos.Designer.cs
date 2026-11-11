@@ -119,6 +119,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { pagarMembresia, pagarPlan, iconBuscar });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
+            menuStrip1.ShowItemToolTips = true;
             menuStrip1.Size = new Size(1131, 71);
             menuStrip1.TabIndex = 5;
             menuStrip1.Text = "menuStrip1";
@@ -163,7 +164,7 @@
             // buscarToolStripMenuItem
             // 
             buscarToolStripMenuItem.Name = "buscarToolStripMenuItem";
-            buscarToolStripMenuItem.Size = new Size(180, 22);
+            buscarToolStripMenuItem.Size = new Size(160, 22);
             buscarToolStripMenuItem.Text = "Escribir:";
             // 
             // txtBuscar

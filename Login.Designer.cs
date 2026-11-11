@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             panel1 = new Panel();
             Titulo = new Label();
             iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
@@ -37,6 +38,7 @@
             label2 = new Label();
             Ingresar = new FontAwesome.Sharp.IconButton();
             Salir = new FontAwesome.Sharp.IconButton();
+            toolTipMensaje = new ToolTip(components);
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)iconPictureBox1).BeginInit();
             SuspendLayout();
@@ -59,7 +61,7 @@
             Titulo.Name = "Titulo";
             Titulo.Size = new Size(210, 43);
             Titulo.TabIndex = 1;
-            Titulo.Text = "SportXpress";
+            Titulo.Text = "SportXpresS";
             // 
             // iconPictureBox1
             // 
@@ -88,7 +90,7 @@
             // 
             txtContraseña.Location = new Point(429, 215);
             txtContraseña.Name = "txtContraseña";
-            txtContraseña.PasswordChar = '*';
+            txtContraseña.PasswordChar = '●';
             txtContraseña.Size = new Size(239, 23);
             txtContraseña.TabIndex = 2;
             txtContraseña.TextChanged += textBox2_TextChanged;
@@ -149,6 +151,10 @@
             Salir.UseVisualStyleBackColor = false;
             Salir.Click += iconButton2_Click;
             // 
+            // toolTipMensaje
+            // 
+            toolTipMensaje.IsBalloon = true;
+            // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -183,5 +189,6 @@
         private Label label2;
         private FontAwesome.Sharp.IconButton Ingresar;
         private FontAwesome.Sharp.IconButton Salir;
+        private ToolTip toolTipMensaje;
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             label5 = new Label();
             label4 = new Label();
             label3 = new Label();
@@ -38,6 +39,7 @@
             txtDuracion = new TextBox();
             txtPrecio = new TextBox();
             label2 = new Label();
+            toolTipMensaje = new ToolTip(components);
             SuspendLayout();
             // 
             // label5
@@ -173,5 +175,6 @@
         private TextBox txtDuracion;
         private TextBox txtPrecio;
         private Label label2;
+        private ToolTip toolTipMensaje;
     }
 }

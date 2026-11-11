@@ -24,12 +24,111 @@ namespace CapaPresentacion
         {
             InitializeComponent();
 
+            ConfigurarDiseñoResponsive();
+
             empleadoLogueado = empleado;
 
             ConfigurarPermisos();
-
             Listar();
+
+            this.añadir.ToolTipText =
+                "Registrar un nuevo alumno.";
+
+            this.editar.ToolTipText =
+                "Modificar la información de un alumno existente." +
+                Environment.NewLine +
+                "Nota: Para editar un alumno, primero debe seleccionarlo " +
+                "en la tabla mediante la flecha ubicada a la izquierda de su registro. " +
+                "Luego, presione el botón Editar.";
+
+            this.eliminar.ToolTipText =
+                "Dar de baja a un alumno." +
+                Environment.NewLine +
+                "Nota: Para dar de baja a un alumno, primero debe seleccionarlo " +
+                "en la tabla mediante la flecha ubicada a la izquierda de su registro. " +
+                "Luego, presione el botón Eliminar.";
+
+            this.activar.ToolTipText =
+                "Dar de alta a un alumno que se encuentra dado de baja." +
+                Environment.NewLine +
+                "Nota: Para activar un alumno, primero debe seleccionarlo " +
+                "en la tabla mediante la flecha ubicada a la izquierda de su registro. " +
+                "Luego, presione el botón Activar.";
+
+            this.asistencia.ToolTipText =
+                "Registrar la asistencia del día de un alumno." +
+                Environment.NewLine +
+                "Nota: Para registrar la asistencia, primero debe seleccionar " +
+                "al alumno en la tabla mediante la flecha ubicada a la izquierda " +
+                "de su registro. Luego, presione el botón Asistencia.";
+
+            this.buscar.ToolTipText =
+                "Buscar un alumno por nombre, apellido o DNI." +
+                Environment.NewLine +
+                "Nota: Al presionar este botón, se desplegará un campo de búsqueda. " +
+                "Ingrese el dato que desea buscar y vuelva a presionar el botón " +
+                "Buscar para ejecutar la búsqueda.";
         }
+
+
+        private void ConfigurarDiseñoResponsive()
+        {
+            // Menú superior
+            menuStrip1.Dock = DockStyle.Top;
+            menuStrip1.AutoSize = false;
+            menuStrip1.Height = 71;
+            menuStrip1.GripStyle = ToolStripGripStyle.Hidden;
+            menuStrip1.CanOverflow = true;
+            menuStrip1.LayoutStyle = ToolStripLayoutStyle.HorizontalStackWithOverflow;
+
+            // Permitir que los botones pasen al menú de desbordamiento
+            foreach (ToolStripItem item in menuStrip1.Items)
+            {
+                item.Overflow = ToolStripItemOverflow.AsNeeded;
+            }
+
+            // Tabla de alumnos
+            dataGridAlumno.Dock = DockStyle.Fill;
+            dataGridAlumno.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridAlumno.ScrollBars = ScrollBars.Both;
+
+            // Selección de registros
+            dataGridAlumno.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridAlumno.MultiSelect = false;
+
+            // Presentación de la tabla
+            dataGridAlumno.ColumnHeadersHeightSizeMode =
+                DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+
+            dataGridAlumno.AutoSizeRowsMode =
+                DataGridViewAutoSizeRowsMode.None;
+
+            dataGridAlumno.DefaultCellStyle.WrapMode =
+                DataGridViewTriState.False;
+
+            // Anchos mínimos y proporciones de las columnas
+            ConfigurarColumna(colIDAlumno, 45, 4);
+            ConfigurarColumna(colNombre, 85, 9);
+            ConfigurarColumna(colApellido, 85, 9);
+            ConfigurarColumna(colDNI, 75, 8);
+            ConfigurarColumna(colTelefono, 90, 10);
+            ConfigurarColumna(colEmail, 120, 14);
+            ConfigurarColumna(colFechaAlta, 85, 9);
+            ConfigurarColumna(colEstado, 65, 7);
+            ConfigurarColumna(colMembresia, 110, 12);
+            ConfigurarColumna(colPlanes, 110, 12);
+            ConfigurarColumna(colAsistencia, 70, 6);
+        }
+
+        private void ConfigurarColumna(
+            DataGridViewColumn columna,
+            int anchoMinimo,
+            float proporcion)
+        {
+            columna.MinimumWidth = anchoMinimo;
+            columna.FillWeight = proporcion;
+        }
+
 
         private void ConfigurarPermisos()
         {

@@ -25,6 +25,13 @@ namespace CapaPresentacion
             alumnoSeleccionado = alumno;
 
             CargarMembresias();
+
+            this.toolTipMensaje.SetToolTip(this.btnPagar, "Realiza el pago de la membresía elegida por el alumno." +
+                Environment.NewLine +
+                "Nota: Si un alumno con una membresía activa intenta pagar otra, se le sumara el total de dias de esa membresia " +
+                Environment.NewLine +
+                "que va a pagar a los dias en los que el alumno tiene membresia activa.");
+            this.toolTipMensaje.SetToolTip(this.btnCancelar, "Cancelar la operación y cerrar el formulario.");
         }
 
         private void CargarMembresias()

@@ -18,9 +18,99 @@ namespace CapaPresentacion
         {
             InitializeComponent();
 
+            ConfigurarDiseñoResponsive();
+
             Listar();
 
+            this.añadir.ToolTipText =
+                "Registrar una nueva membresía.";
+
+            this.editar.ToolTipText =
+                "Modificar la información de una membresía existente." +
+                Environment.NewLine +
+                "Nota: Para editar una membresía, primero debe seleccionarla " +
+                "en la tabla mediante la flecha ubicada a la izquierda de su registro. " +
+                "Luego, presione el botón Editar.";
+
+            this.eliminar.ToolTipText =
+                "Dar de baja a una membresía." +
+                Environment.NewLine +
+                "Nota: Para dar de baja a una membresía, primero debe seleccionarla " +
+                "en la tabla mediante la flecha ubicada a la izquierda de su registro. " +
+                "Luego, presione el botón Eliminar.";
+
+            this.activar.ToolTipText =
+                "Dar de alta a una membresía que se encuentra dada de baja." +
+                Environment.NewLine +
+                "Nota: Para activar una membresía, primero debe seleccionarla " +
+                "en la tabla mediante la flecha ubicada a la izquierda de su registro. " +
+                "Luego, presione el botón Activar.";
+
+            this.buscar.ToolTipText =
+                "Buscar una membresía por nombre." +
+                Environment.NewLine +
+                "Nota: Al presionar este botón, se desplegará un campo de búsqueda. " +
+                "Ingrese el dato que desea buscar y vuelva a presionar el botón " +
+                "Buscar para ejecutar la búsqueda.";
         }
+
+
+        private void ConfigurarDiseñoResponsive()
+        {
+            // Menú superior
+            menuStrip1.Dock = DockStyle.Top;
+            menuStrip1.AutoSize = false;
+            menuStrip1.Height = 71;
+            menuStrip1.GripStyle = ToolStripGripStyle.Hidden;
+            menuStrip1.CanOverflow = true;
+            menuStrip1.LayoutStyle =
+                ToolStripLayoutStyle.HorizontalStackWithOverflow;
+
+            foreach (ToolStripItem item in menuStrip1.Items)
+            {
+                item.Overflow = ToolStripItemOverflow.AsNeeded;
+            }
+
+            // Tabla de membresías
+            dataGridMembresias.Dock = DockStyle.Fill;
+
+            dataGridMembresias.AutoSizeColumnsMode =
+                DataGridViewAutoSizeColumnsMode.Fill;
+
+            dataGridMembresias.ScrollBars = ScrollBars.Both;
+
+            dataGridMembresias.SelectionMode =
+                DataGridViewSelectionMode.FullRowSelect;
+
+            dataGridMembresias.MultiSelect = false;
+
+            dataGridMembresias.ColumnHeadersHeightSizeMode =
+                DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+
+            dataGridMembresias.AutoSizeRowsMode =
+                DataGridViewAutoSizeRowsMode.None;
+
+            dataGridMembresias.DefaultCellStyle.WrapMode =
+                DataGridViewTriState.False;
+
+            // Proporciones de las columnas
+            ConfigurarColumna(colIdMembresia, 50, 7);
+            ConfigurarColumna(colNombre, 110, 17);
+            ConfigurarColumna(colDescripcion, 200, 40);
+            ConfigurarColumna(colPrecio, 100, 13);
+            ConfigurarColumna(colDuracion, 100, 13);
+            ConfigurarColumna(colEstado, 75, 10);
+        }
+
+        private void ConfigurarColumna(
+            DataGridViewColumn columna,
+            int anchoMinimo,
+            float proporcion)
+        {
+            columna.MinimumWidth = anchoMinimo;
+            columna.FillWeight = proporcion;
+        }
+
 
         private void Listar()
         {

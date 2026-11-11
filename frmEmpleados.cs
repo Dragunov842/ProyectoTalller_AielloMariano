@@ -19,8 +19,82 @@ namespace CapaPresentacion
         {
             InitializeComponent();
 
+            ConfigurarDiseñoResponsive();
+
             Listar();
+
+            this.añadir.ToolTipText =
+                "Registrar un nuevo empleado.";
+
+            this.editar.ToolTipText =
+                "Modificar la información de un empleado existente." +
+                Environment.NewLine +
+                "Nota: Para editar un empleado, primero debe seleccionarlo " +
+                "en la tabla mediante la flecha ubicada a la izquierda de su registro. " +
+                "Luego, presione el botón Editar.";
+
+            this.eliminar.ToolTipText =
+                "Dar de baja a un empleado." +
+                Environment.NewLine +
+                "Nota: Para dar de baja a un empleado, primero debe seleccionarlo " +
+                "en la tabla mediante la flecha ubicada a la izquierda de su registro. " +
+                "Luego, presione el botón Eliminar.";
+
+            this.activar.ToolTipText =
+                "Dar de alta a un empleado que se encuentra dado de baja." +
+                Environment.NewLine +
+                "Nota: Para activar un empleado, primero debe seleccionarlo " +
+                "en la tabla mediante la flecha ubicada a la izquierda de su registro. " +
+                "Luego, presione el botón Activar.";
+
+            this.buscar.ToolTipText =
+                "Buscar un empleado por nombre, apellido o DNI." +
+                Environment.NewLine +
+                "Nota: Al presionar este botón, se desplegará un campo de búsqueda. " +
+                "Ingrese el dato que desea buscar y vuelva a presionar el botón " +
+                "Buscar para ejecutar la búsqueda.";
         }
+
+
+        private void ConfigurarDiseñoResponsive()
+        {
+            // Menú superior
+            menuStrip1.Dock = DockStyle.Top;
+            menuStrip1.AutoSize = false;
+            menuStrip1.Height = 71;
+            menuStrip1.GripStyle = ToolStripGripStyle.Hidden;
+            menuStrip1.CanOverflow = true;
+            menuStrip1.LayoutStyle =
+                ToolStripLayoutStyle.HorizontalStackWithOverflow;
+
+            foreach (ToolStripItem item in menuStrip1.Items)
+            {
+                item.Overflow = ToolStripItemOverflow.AsNeeded;
+            }
+
+            // Tabla de empleados
+            dataGridEmpleado.Dock = DockStyle.Fill;
+
+            dataGridEmpleado.AutoSizeColumnsMode =
+                DataGridViewAutoSizeColumnsMode.Fill;
+
+            dataGridEmpleado.ScrollBars = ScrollBars.Both;
+
+            dataGridEmpleado.SelectionMode =
+                DataGridViewSelectionMode.FullRowSelect;
+
+            dataGridEmpleado.MultiSelect = false;
+
+            dataGridEmpleado.ColumnHeadersHeightSizeMode =
+                DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+
+            dataGridEmpleado.AutoSizeRowsMode =
+                DataGridViewAutoSizeRowsMode.None;
+
+            dataGridEmpleado.DefaultCellStyle.WrapMode =
+                DataGridViewTriState.False;
+        }
+
 
         private void Listar()
         {

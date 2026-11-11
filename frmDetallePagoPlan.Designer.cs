@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             cmbPlan = new ComboBox();
             label6 = new Label();
             label7 = new Label();
@@ -36,6 +37,7 @@
             txtPrecio = new TextBox();
             btnCancelar = new FontAwesome.Sharp.IconButton();
             btnPagar = new FontAwesome.Sharp.IconButton();
+            toolTipMensaje = new ToolTip(components);
             SuspendLayout();
             // 
             // cmbPlan
@@ -156,5 +158,6 @@
         private TextBox txtPrecio;
         private FontAwesome.Sharp.IconButton btnCancelar;
         private FontAwesome.Sharp.IconButton btnPagar;
+        private ToolTip toolTipMensaje;
     }
 }

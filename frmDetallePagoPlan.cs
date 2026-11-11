@@ -22,6 +22,13 @@ namespace CapaPresentacion
             alumnoSeleccionado = alumno;
 
             CargarPlanes();
+
+            this.toolTipMensaje.SetToolTip(this.btnPagar, "Realiza el pago del plan elegido por el alumno." +
+            Environment.NewLine +
+            "Nota: Si un alumno con un plan activo intenta pagar otro, se le sumara el total de dias de ese plan " +
+            Environment.NewLine +
+            "que va a pagar a los dias en los que el alumno tiene plan activo.");
+            this.toolTipMensaje.SetToolTip(this.btnCancelar, "Cancelar la operación y cerrar el formulario.");
         }
 
         private void CargarPlanes()

@@ -79,6 +79,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { añadir, editar, eliminar, activar, asistencia, buscar });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
+            menuStrip1.ShowItemToolTips = true;
             menuStrip1.Size = new Size(1128, 71);
             menuStrip1.TabIndex = 4;
             menuStrip1.Text = "menuStrip1";

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
@@ -46,12 +47,13 @@
             txtEmail = new TextBox();
             label4 = new Label();
             txtTelefono = new TextBox();
+            toolTipMensaje = new ToolTip(components);
             SuspendLayout();
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(383, 153);
+            label3.Location = new Point(383, 36);
             label3.Name = "label3";
             label3.Size = new Size(27, 15);
             label3.TabIndex = 21;
@@ -60,7 +62,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(371, 87);
+            label2.Location = new Point(371, 164);
             label2.Name = "label2";
             label2.Size = new Size(51, 15);
             label2.TabIndex = 20;
@@ -69,7 +71,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(371, 21);
+            label1.Location = new Point(371, 98);
             label1.Name = "label1";
             label1.Size = new Size(51, 15);
             label1.TabIndex = 19;
@@ -111,21 +113,21 @@
             // 
             // txtApellido
             // 
-            txtApellido.Location = new Point(280, 105);
+            txtApellido.Location = new Point(280, 182);
             txtApellido.Name = "txtApellido";
             txtApellido.Size = new Size(241, 23);
             txtApellido.TabIndex = 16;
             // 
             // txtDNI
             // 
-            txtDNI.Location = new Point(280, 171);
+            txtDNI.Location = new Point(280, 54);
             txtDNI.Name = "txtDNI";
             txtDNI.Size = new Size(241, 23);
             txtDNI.TabIndex = 15;
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(280, 39);
+            txtNombre.Location = new Point(280, 116);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(241, 23);
             txtNombre.TabIndex = 12;
@@ -161,7 +163,7 @@
             // 
             txtContraseña.Location = new Point(280, 496);
             txtContraseña.Name = "txtContraseña";
-            txtContraseña.PasswordChar = '*';
+            txtContraseña.PasswordChar = '●';
             txtContraseña.Size = new Size(241, 23);
             txtContraseña.TabIndex = 25;
             // 
@@ -263,5 +265,6 @@
         private TextBox txtEmail;
         private Label label4;
         private TextBox txtTelefono;
+        private ToolTip toolTipMensaje;
     }
 }

@@ -38,6 +38,10 @@
             txtContraseña1 = new TextBox();
             label1 = new Label();
             label3 = new Label();
+            label4 = new Label();
+            label5 = new Label();
+            txtUsuario1 = new TextBox();
+            txtUsuario2 = new TextBox();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -46,6 +50,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { subirBackup, copiarBackup });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
+            menuStrip1.ShowItemToolTips = true;
             menuStrip1.Size = new Size(1035, 71);
             menuStrip1.TabIndex = 4;
             menuStrip1.Text = "menuStrip1";
@@ -99,9 +104,9 @@
             // 
             txtContraseña2.Location = new Point(667, 470);
             txtContraseña2.Name = "txtContraseña2";
-            txtContraseña2.PasswordChar = '*';
             txtContraseña2.Size = new Size(239, 23);
             txtContraseña2.TabIndex = 6;
+            txtContraseña2.UseSystemPasswordChar = true;
             // 
             // txtContraseña1
             // 
@@ -109,6 +114,7 @@
             txtContraseña1.Name = "txtContraseña1";
             txtContraseña1.Size = new Size(239, 23);
             txtContraseña1.TabIndex = 5;
+            txtContraseña1.UseSystemPasswordChar = true;
             // 
             // label1
             // 
@@ -134,12 +140,51 @@
             label3.Text = resources.GetString("label3.Text");
             label3.TextAlign = ContentAlignment.TopCenter;
             // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(156, 351);
+            label4.Name = "label4";
+            label4.Size = new Size(208, 15);
+            label4.TabIndex = 13;
+            label4.Text = "Ingrese el username del administrador\r\n";
+            label4.TextAlign = ContentAlignment.TopCenter;
+            label4.Click += label4_Click;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(693, 351);
+            label5.Name = "label5";
+            label5.Size = new Size(188, 15);
+            label5.TabIndex = 14;
+            label5.Text = "Ingrese el username del supervisor";
+            label5.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // txtUsuario1
+            // 
+            txtUsuario1.Location = new Point(140, 369);
+            txtUsuario1.Name = "txtUsuario1";
+            txtUsuario1.Size = new Size(239, 23);
+            txtUsuario1.TabIndex = 15;
+            // 
+            // txtUsuario2
+            // 
+            txtUsuario2.Location = new Point(667, 369);
+            txtUsuario2.Name = "txtUsuario2";
+            txtUsuario2.Size = new Size(239, 23);
+            txtUsuario2.TabIndex = 16;
+            // 
             // frmBackup
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Info;
             ClientSize = new Size(1035, 626);
+            Controls.Add(txtUsuario2);
+            Controls.Add(txtUsuario1);
+            Controls.Add(label5);
+            Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label1);
             Controls.Add(label2);
@@ -166,5 +211,9 @@
         private TextBox txtContraseña1;
         private Label label1;
         private Label label3;
+        private Label label4;
+        private Label label5;
+        private TextBox txtUsuario1;
+        private TextBox txtUsuario2;
     }
 }

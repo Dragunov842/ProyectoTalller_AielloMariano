@@ -126,12 +126,6 @@
   <metadata name="copiarBackup.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>362, 17</value>
   </metadata>
-  <metadata name="subirBackup.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>362, 17</value>
-  </metadata>
-  <metadata name="copiarBackup.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>362, 17</value>
-  </metadata>
   <data name="label3.Text" xml:space="preserve">
     <value>La operacion de subir o sobretodo guardar un backup puede representar un peligro de perdida de datos
 y se recomienda que solo se lleve a cabo por personas autorizadas y con el consentimiento de un administrador y un supervisor

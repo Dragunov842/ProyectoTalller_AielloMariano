@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             panel1 = new Panel();
             lblusuario = new Label();
             Usuario = new Label();
@@ -42,6 +43,7 @@
             menuBackup = new FontAwesome.Sharp.IconMenuItem();
             menuSalir = new FontAwesome.Sharp.IconMenuItem();
             contenedor = new Panel();
+            toolTipMensaje = new ToolTip(components);
             panel1.SuspendLayout();
             menuStrip1.SuspendLayout();
             SuspendLayout();
@@ -98,6 +100,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { menuAlumnos, menuMembresias, menuPlanes, menuPagos, menuReportes, menuUsuarios, menuBackup, menuSalir });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
+            menuStrip1.ShowItemToolTips = true;
             menuStrip1.Size = new Size(1128, 71);
             menuStrip1.TabIndex = 3;
             menuStrip1.Text = "menuStrip1";
@@ -246,5 +249,6 @@
         private Label Usuario;
         private Panel contenedor;
         private FontAwesome.Sharp.IconMenuItem menuBackup;
+        private ToolTip toolTipMensaje;
     }
 }
