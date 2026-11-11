@@ -27,6 +27,22 @@ namespace CapaNegocio
             return objcd_Alumno.BuscarPorId(idAlumno);
         }
 
+        public Persona BuscarPersonaPorDNI(string dni)
+        {
+            if (string.IsNullOrWhiteSpace(dni))
+                return null;
+
+            return objcd_Alumno.BuscarPersonaPorDNI(dni.Trim());
+        }
+
+        public bool ExisteAlumnoPorIdPersona(int idPersona)
+        {
+            if (idPersona <= 0)
+                return false;
+
+            return objcd_Alumno.ExisteAlumnoPorIdPersona(idPersona);
+        }
+
         public int Registrar(Alumno obj)
         {
             return objcd_Alumno.Registrar(obj);
